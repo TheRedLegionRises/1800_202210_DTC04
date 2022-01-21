@@ -6,7 +6,8 @@
 
 ## General Info
 This browser based web application to ...
-* Hi my name is Jerry
+	*Hi my name is Jerry
+    *Hi it's Steven.
 
 ## Technologies
 Technologies used for this project:
