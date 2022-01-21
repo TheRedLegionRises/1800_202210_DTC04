@@ -7,14 +7,11 @@
 ## General Info
 
 This browser based web application to ...
-*Hi my name is Jerry
-*Hi my name is Neil
-*Name: Steven Chow; Github_username: user-steven
-*Name: Neil Cao; Github_username: neilcao777
 
 - Hi my name is Jerry - TheRedLegionRises
 - Name: Steven Chow; Github_username: user-steven
 - Name: Dhruv Gupta; Github_username: Dhruv-2974
+- Name: Neil Cao; Github_username: neilcao777
 
 ## Technologies
 
