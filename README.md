@@ -6,8 +6,10 @@
 
 ## General Info
 This browser based web application to ...
-* Hi my name is Jerry; Github username: TheRedLegionRises
+
+* Hi my name is Jerry - TheRedLegionRises
 * Name: Steven Chow; Github_username: user-steven
+* Name: Dhruv Gupta; Github_username: Dhruv-2974
 
 ## Technologies
 Technologies used for this project:
