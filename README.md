@@ -7,7 +7,7 @@
 ## General Info
 This browser based web application to ...
 	*Hi my name is Jerry
-    *Hi it's Steven.
+    *Name: Steven Chow; Github_username: user-steven
 
 ## Technologies
 Technologies used for this project:
