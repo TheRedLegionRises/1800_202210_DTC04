@@ -12,6 +12,10 @@ This browser based web application to ...
 *Name: Steven Chow; Github_username: user-steven
 *Name: Neil Cao; Github_username: neilcao777
 
+- Hi my name is Jerry - TheRedLegionRises
+- Name: Steven Chow; Github_username: user-steven
+- Name: Dhruv Gupta; Github_username: Dhruv-2974
+
 ## Technologies
 
 Technologies used for this project:
