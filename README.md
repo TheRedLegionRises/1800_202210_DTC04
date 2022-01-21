@@ -8,7 +8,10 @@
 This browser based web application to ...
 * Hi my name is Jerry
 * Hi my name is Dhruv
-
+* Hi my name is Jerry - TheRedLegionRises
+	*Hi my name is Jerry
+    *Name: Steven Chow; Github_username: user-steven
+    *Name: Dhruv Gupta; Github_username: Dhruv-2974
 ## Technologies
 Technologies used for this project:
 * HTML, CSS
