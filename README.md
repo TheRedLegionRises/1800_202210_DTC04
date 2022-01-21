@@ -7,6 +7,7 @@
 ## General Info
 This browser based web application to ...
 * Hi my name is Jerry
+* Hi my name is Dhruv
 
 ## Technologies
 Technologies used for this project:
