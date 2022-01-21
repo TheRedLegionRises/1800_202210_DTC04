@@ -6,7 +6,8 @@
 
 ## General Info
 This browser based web application to ...
-	
+	*Hi my name is Jerry
+
 ## Technologies
 Technologies used for this project:
 * HTML, CSS
