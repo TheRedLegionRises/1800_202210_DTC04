@@ -8,7 +8,7 @@
 
 This browser based web application to ...
 
-- Hi my name is Jerry - TheRedLegionRises
+- Name: Jerry Han; Github_username: TheRedLegionRises
 - Name: Steven Chow; Github_username: user-steven
 - Name: Dhruv Gupta; Github_username: Dhruv-2974
 - Name: Neil Cao; Github_username: neilcao777
