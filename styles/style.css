@@ -5,3 +5,40 @@
     width: 100px; /* Set a small width */
     height: fit-content;
 }
+
+
+
+
+
+/* Search bar */
+html,
+body,
+.intro {
+  height: 100%;
+}
+
+.mask-custom {
+  background: rgba(24, 24, 16, .2);
+  border-radius: 2em;
+  backdrop-filter: blur(15px);
+  border: 2px solid rgba(255, 255, 255, 0.05);
+  background-clip: padding-box;
+  box-shadow: 10px 10px 10px rgba(46, 54, 68, 0.03);
+}
+/* Search bar */
+
+
+
+
+
+
+
+
+#main_page_background{
+    background-image: url("/images/background_landing_page.jpg");
+    background-position: center ;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-color: #464646;
+}
