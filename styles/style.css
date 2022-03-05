@@ -7,9 +7,6 @@
 }
 
 
-
-
-
 /* Search bar */
 html,
 body,
@@ -27,13 +24,9 @@ body,
 }
 /* Search bar */
 
-
-
-
-
-
-
-
+#login_background{
+    background-color: #464646;
+}
 #main_page_background{
     background-image: url("/images/background_landing_page.jpg");
     background-position: center ;
