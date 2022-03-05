@@ -165,5 +165,22 @@ new mdb.Autocomplete(locationAutocomplete, {
 });
 // SEARCH BAR
 
-//Background
+//GRAB USER'S NAME
+function insertName(){
+    // console.log("insertName() got called")
+    // to check if user is logged in
+    firebase.auth().onAuthStateChanged( user => {
+        if (user){
+            console.log(user.uid); // get uid of user who is logged in
+            currentUser = db.collection("users").doc(user.uid); // will go to firestore and go to the document of the user
+            currentUser.get().then(userDoc =>{
+                //get user name
+                var user_name = userDoc.data().name;
+                console.log(user_name)
+                document.getElementById("display-user-name").innerHTML = user_name;
+            })
+        }
+    })
+}
+insertName();
 

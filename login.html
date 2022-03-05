@@ -2,8 +2,8 @@
 <html lang="en">
 
 <head>
-    <title>Crave It Login Page</title>
-    <meta name="Crave it" content="COMP 1800 Project">
+    <title>Login Page</title>
+    <meta name="Login Page" content="COMP 1800 Project">
 
     <!------------------------>
     <!-- Required meta tags -->
@@ -41,12 +41,14 @@
 <body id="login_background" class="d-flex flex-column min-vh-100">
 
     <!-- our own navbar goes here -->
-    <nav id="navbarPlaceholder"></nav>
+    <nav id="nav_main"></nav>
 
-    <div class="container">
+
+    <!-- BODY -->
+    <div class="px-5 py-5 my-5">
+        <div id="firebaseui-auth-container"></div>
+        <div id="loader">Loading...</div>
     </div>
-    <div id="firebaseui-auth-container"></div>
-    <div id="loader">Loading...</div>
 
 
 
