@@ -1,0 +1,45 @@
+/* Filter */
+html,
+body{
+    height: 100%;
+}
+
+#frequent_filters{
+    background-color: aqua;
+}
+
+#filter_options_tab{
+    background-color: lightblue;
+    width: 70%;
+    height: 40%;
+    float:left;
+
+}
+
+#selected_filters{
+  background-color: lightyellow;
+  width: 30%;
+  height: 40%;
+  float:left;
+
+}
+
+#submit{
+    background-color: green;
+    font-size: 24px;
+    color: white;
+    float: right; 
+    width: 100%;
+    height: 40px;
+    margin: 20px;
+}
+
+.filter_button{
+  background-color: blue;
+  color:white;
+  padding: 10px;
+  margin: 0px 5px 5px;
+  border:none;
+  font-size:20px;
+  border-radius:12px;
+}
