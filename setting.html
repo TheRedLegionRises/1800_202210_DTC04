@@ -2,8 +2,8 @@
 <html lang="en">
 
 <head>
-    <title>Main Page</title>
-    <meta name="Main Page" content="COMP 1800 Project">
+    <title>**************************************</title>
+    <meta name="Crave it" content="COMP 1800 Project">
 
     <!------------------------>
     <!-- Required meta tags -->
@@ -38,33 +38,45 @@
 
 </head>
 
-<body id="main_page_background" class="d-flex flex-column min-vh-100">
+<body class="d-flex flex-column min-vh-100">
 
     <!-- our own navbar goes here -->
     <nav id="nav_main"></nav>
 
 
     <!-- BODY GOES HERE -->
-
-
-
-
-    <div class="h-100 row align-items-center mx-auto">
-        <div class="jumbotron">
-            <h1 class="display-67 text-white">Find Restaurants to please your palate!</h1>
-            <p class="lead text-white">Select your preferences</p>
-
-            <p class="lead">
-                <a class="btn btn-light btn-lg" href="#" role="button">Start Now</a>
-            </p>
-        </div>
+    <div class="container">
+        <h1>User Profile </h1>
+        <form>
+            <fieldset class="mb-3" id="personalInfoFields" disabled>
+                <div class="form-group">
+                    <label>Name</label>
+                    <input type="text" id="nameInput" class="form-control" placeholder="Enter your name">
+                </div>
+                <br>
+                <div class="form-group">
+                    <label>City</label>
+                    <input type="text" id="cityInput" class="form-control" placeholder="Enter your City">
+                </div>
+                <br>
+                <div class="form-group">
+                    <label>About Me</label>
+                    <input type="text" id="aboutMeInput" class="form-control" placeholder="Tell other's about yourself">
+                </div>
+                <br>
+                <div class="form-group">
+                    <label>Birthday</label>
+                    <input type="date" id="birthdayInput" class="form-control">
+                </div>
+            </fieldset>
+            <div class="d-flex justify-content-end mt-5">
+                <button type="button" class="btn btn-secondary" onclick="editUserInfo()">Edit</button>
+                <span style="width: 10px"></span>
+                <button type="button" class="btn btn-light" onclick="saveUserInfo()">Save</button>
+            </div>
+        </form>
+        <br>
     </div>
-
-
-
-
-
-
 
 
 
@@ -78,6 +90,7 @@
     <script src="./scripts/firebaseAPI_DT04.js"></script>
 
     <!-- Link to scripts of your own -->
+    <script src="./scripts/setting.js"></script>
     <script src="./scripts/authentication.js"></script>
     <script src="./scripts/skeleton.js"></script>
     <script src="./scripts/script.js"></script>
