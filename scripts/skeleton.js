@@ -5,6 +5,7 @@
 function loadSkeleton(){
     console.log($('#nav_main').load('./header_main.html'));
     console.log($('#nav_index').load('./header_index.html'));
+    console.log($('#nav_filter').load('./header_filter.html'));
     console.log($('#footerPlaceholder').load('./footer.html'));
 }
 loadSkeleton();  //invoke the function

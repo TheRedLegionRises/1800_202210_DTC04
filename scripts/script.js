@@ -148,9 +148,9 @@ const dataFilter = (value) => {
     });
 };
 
-new mdb.Autocomplete(basicAutocomplete, {
-    filter: dataFilter
-});
+// new mdb.Autocomplete(basicAutocomplete, {
+//     filter: dataFilter
+// });
 
 const locationAutocomplete = document.querySelector('#location');
 const dataL = ['Madrid', 'Rome', 'Lisbon', 'Paris', 'London'];
@@ -160,9 +160,9 @@ const dataFilterL = (value) => {
     });
 };
 
-new mdb.Autocomplete(locationAutocomplete, {
-    filter: dataFilterL
-});
+// new mdb.Autocomplete(locationAutocomplete, {
+//     filter: dataFilterL
+// });
 // SEARCH BAR
 
 //GRAB USER'S NAME
