@@ -54,65 +54,39 @@
             <input type="text" class="form-control" id="title" placeholder="Title">
         </div><br>
         <div class="form-group">
-            <label for="exampleFormControlSelect1">How many stars would you </label>
+            <label for="exampleFormControlSelect1">How would you rate your experience in this restaurant? </label>
             <select class="form-control" id="level">
-                <option>Hard</option>
-                <option>Moderate</option>
-                <option>Easy</option>
+                <option>★☆☆☆☆ Not recommend</option>
+                <option>★★☆☆☆ Could've been better</option>
+                <option>★★★☆☆ Average</option>
+                <option>★★★★☆ Decent</option>
+                <option>★★★★★ Fantastic</option>
             </select>
             <br>
+
             <div class="form-group">
-                <label for="exampleFormControlSelect1">Which season did you do the hike?</label>
-                <select class="form-control" id="season">
-                    <option>Fall</option>
-                    <option>Winter</option>
-                    <option>Spring</option>
-                    <option>Summer</option>
+                <label for="exampleFormControlSelect1">What do you think of this restaurant's price range? </label>
+                <select class="form-control" id="price">
+                    <option>$ Low-price</option>
+                    <option>$$ Acceptable price</option>
+                    <option>$$$ Above average price</option>
+                    <option>$$$$ Expensive</option>
                 </select>
                 <br>
-            </div>
-            <div class="form-group">
-                <label for="exampleFormControlTextarea1">What did you think of the trail?</label>
-                <textarea class="form-control" id="description" rows="3"></textarea>
-            </div>
-            <br>
-            <!--Flooded-->
-            <label>Flooded <span style="display:inline-block; width: 26pt;"></span></label>
 
-            <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="flooded" value="Yes">
-                <label>Yes</label>
-            </div>
-            <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="flooded" value="No">
-                <label>No</label>
-            </div>
-            <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="flooded" value="unSure" checked="">
-                <label>Not sure</label>
-            </div>
-            <br>
-            <!--Scramble-->
-            <label>Scramble <span style="display:inline-block; width: 20pt;"></span></label>
+                <div class="form-group">
+                    <label for="exampleFormControlTextarea1">What do you want to share about this place?</label>
 
-            <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="scrambled" value="Yes">
-                <label>Yes</label>
-            </div>
-            <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="scrambled" value="No">
-                <label>No</label>
-            </div>
-            <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="scrambled" value="unSure" checked="">
-                <label>Not sure</label>
-            </div>
+                    <textarea class="form-control" id="description" rows="7"></textarea>
+                </div>
+                <br>
 
-            <br>
-            <div class="d-flex justify-content-end">
-                <button type="button" class="btn btn-lg btn-primary pull-right" onclick="writeReview()">Submit</button>
+
+                <br>
+                <div class="d-flex justify-content-end">
+                    <button type="button" class="btn btn-lg btn-dark pull-right" onclick="writeReview()">Submit</button>
+                </div>
             </div>
-        </div>
     </form>
 
     <!-- our own footer goes here-->
@@ -128,6 +102,7 @@
     <script src="./scripts/authentication.js"></script>
     <script src="./scripts/skeleton.js"></script>
     <script src="./scripts/script.js"></script>
+    <script src="./scripts/review.js"></script>
 </body>
 
 </html>

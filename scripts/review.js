@@ -1,20 +1,20 @@
-let RestaurantName = localStorage.getItem("RestaurantName");
+let RestaurantID = localStorage.getItem("RestaurantID");
 
-db.collection("Hikes")
-  .where("id", "==", RestaurantName)
+db.collection("restaurant")
+  .where("id", "==", id)
   .get()
-  .then((queryHike) => {
+  .then((queryRestaurant) => {
     //see how many results you have got from the query
-    size = queryHike.size;
+    size = queryRestaurant.size;
     // get the documents of query
-    Hikes = queryHike.docs;
+    id = queryRestaurant.docs;
 
     // We want to have one document per hike, so if the the result of
     //the query is more than one, we can check it right now and clean the DB if needed.
     if (size == 1) {
-      var thisHike = Hikes[0].data();
-      name = thisHike.name;
-      document.getElementById("HikeName").innerHTML = name;
+      var thisRestaurant = id[0].data();
+      name = thisRestaurant.name;
+      document.getElementById("RestaurantName").innerHTML = name;
     } else {
       console.log("Query has more than one data");
     }
@@ -27,13 +27,9 @@ function writeReview() {
   console.log("in");
   let Title = document.getElementById("title").value;
   let Level = document.getElementById("level").value;
-  let Season = document.getElementById("season").value;
+  let Price = document.getElementById("price").value;
   let Description = document.getElementById("description").value;
-  let Flooded = document.querySelector('input[name="flooded"]:checked').value;
-  let Scrambled = document.querySelector(
-    'input[name="scrambled"]:checked'
-  ).value;
-  console.log(Title, Level, Season, Description, Flooded, Scrambled);
+  console.log(Title, Level, Description);
 
   firebase.auth().onAuthStateChanged((user) => {
     if (user) {
@@ -44,17 +40,15 @@ function writeReview() {
         var userEmail = userDoc.data().email;
         db.collection("Reviews")
           .add({
-            code: hikeID,
+            code: id,
             userID: userID,
             title: Title,
             level: Level,
-            season: Season,
+            price: Price,
             description: Description,
-            flooded: Flooded,
-            scrambled: Scrambled,
           })
           .then(() => {
-            window.location.href = "thanks.html";
+            window.location.href = "main.html";
           });
       });
     } else {
