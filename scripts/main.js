@@ -98,3 +98,76 @@ function writeRestaurants() {
     });
 }
 
+
+/* MAKE IT WORK LATER */
+/* function populateCardsDynamically() {
+    let restuarantCardTemplate = document.getElementById("restuarantCardTemplate");
+    let restaurants_card_group = document.getElementById("restaurants_card_group");
+
+    db.collection("restuarant")
+    .orderBy("name") //NEW LINE;  what do you want to sort by?
+    .limit(10) //NEW LINE:  how many do you want to get?
+    .get()
+    .then((allrestuarant) => {
+      allrestuarant.forEach((doc) => {
+        var restaurantName = doc.data().name; //gets the name field
+        var restuarantID = doc.data().id;     //gets the unique ID field
+        var restaurantPrice = doc.data().price //gets the unique Price field
+        var restaurantRating = doc.data().review  //gets the unique Review field
+        var restaurantDescription = doc.data().description  //gets the unique Description field
+        let testrestuarantCard = restuarantCardTemplate.content.cloneNode(true);
+        
+        testrestuarantCard.querySelector(".card__title").innerHTML = restaurantName;
+        testrestuarantCard.querySelector(".card__status").innerHTML = restaurantPrice;
+        testrestuarantCard.querySelector(".card__star").innerHTML = restaurantRating;
+        //testrestuarantCard.querySelector(".card__description").innerHTML = restaurantDescription;
+        
+
+        // testrestuarantCard.querySelector("card__title").innerHTML = hikeLength;
+        testrestuarantCard.querySelector("img").src = `./images/${restuarantID}.jpg`;
+
+        
+        restaurants_card_group.appendChild(testrestuarantCard);
+      });
+    });
+}
+ */
+
+
+// USE LATER
+
+function sort_by_restaurant() {
+
+    let RestaurantCard = document.getElementById("RestaurantCard");
+    let RestaurantCardGroup = document.getElementById("RestaurantCardGroup");
+
+    db.collection("restaurant")
+    .orderBy("city")
+    .limit(10)
+    .get()
+        .then(AllRestaurants => {
+            AllRestaurants.forEach(doc => {
+                var RestaurantName = doc.data().name;
+                var RestaurantID = doc.data().id;
+                var RestaurantPrice = doc.data().price;
+                var RestaurantDescription = doc.data().description
+
+                let newRestaurantCard = RestaurantCard.content.cloneNode(true);
+                newRestaurantCard.querySelector('.card-title').innerHTML = RestaurantName;
+                newRestaurantCard.querySelector('.price').innerHTML = RestaurantPrice;
+                newRestaurantCard.querySelector('.card-text').innerHTML = RestaurantDescription;
+
+                
+                
+                newRestaurantCard.querySelector("img").src = `./images/${RestaurantID}.jpg`;
+
+
+                RestaurantCardGroup.appendChild(newRestaurantCard);
+
+            })
+        })
+}
+
+
+
+sort_by_restaurant()
