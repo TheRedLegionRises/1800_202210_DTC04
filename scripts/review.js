@@ -1,18 +1,18 @@
-let restaurantID = localStorage.getItem("restaurantID");
+let RestaurantID = localStorage.getItem("RestaurantID");
 
 db.collection("restaurant")
-  .where("id", "==", restaurantID)
+  .where("id", "==", RestaurantID)
   .get()
   .then((queryRestaurant) => {
     //see how many results you have got from the query
     size = queryRestaurant.size;
     // get the documents of query
-    Restaurants = queryRestaurant.docs;
+    restaurant = queryRestaurant.docs;
 
     // We want to have one document per , so if the the result of
     //the query is more than one, we can check it right now and clean the DB if needed.
     if ((size = 1)) {
-      var thisRestaurant = Restaurants[0].data();
+      var thisRestaurant = restaurant[0].data();
       restaurantName = thisRestaurant.name;
       console.log(restaurantName);
       document.getElementById("RestaurantName").innerHTML = restaurantName;
