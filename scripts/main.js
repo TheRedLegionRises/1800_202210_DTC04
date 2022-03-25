@@ -136,14 +136,12 @@ function writeRestaurants() {
 
 // USE LATER
 
-function sort_by_restaurant() {
+function populate_restaurants() {
 
     let RestaurantCard = document.getElementById("RestaurantCard");
     let RestaurantCardGroup = document.getElementById("RestaurantCardGroup");
 
     db.collection("restaurant")
-    .orderBy("city")
-    .limit(10)
     .get()
         .then(AllRestaurants => {
             AllRestaurants.forEach(doc => {
@@ -170,4 +168,4 @@ function sort_by_restaurant() {
 
 
 
-sort_by_restaurant()
+populate_restaurants()

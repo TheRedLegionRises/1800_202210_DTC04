@@ -20,6 +20,8 @@ firebase.auth().onAuthStateChanged(user => {
 
 function sort_by_price_restaurant() {
 
+    $("#RestaurantCardGroup").empty();
+
     let RestaurantCard = document.getElementById("RestaurantCard");
     let RestaurantCardGroup = document.getElementById("RestaurantCardGroup");
 
@@ -32,13 +34,16 @@ function sort_by_price_restaurant() {
                 var RestaurantName = doc.data().name;
                 var RestaurantID = doc.data().id;
                 var RestaurantPrice = doc.data().price;
+                var RestaurantDescription = doc.data().description
 
                 let newRestaurantCard = RestaurantCard.content.cloneNode(true);
                 newRestaurantCard.querySelector('.card-title').innerHTML = RestaurantName;
                 newRestaurantCard.querySelector('.price').innerHTML = RestaurantPrice;
+                newRestaurantCard.querySelector('.card-text').innerHTML = RestaurantDescription;
+
                 
-                newRestaurantCard.querySelector('.restaurant-id').innerHTML = RestaurantID;
                 
+                newRestaurantCard.querySelector("img").src = `./images/${RestaurantID}.jpg`;
 
 
                 RestaurantCardGroup.appendChild(newRestaurantCard);
@@ -46,6 +51,3 @@ function sort_by_price_restaurant() {
             })
         })
 }
-
-sort_by_price_restaurant();
-
