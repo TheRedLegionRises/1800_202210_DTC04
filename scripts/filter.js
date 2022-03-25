@@ -87,10 +87,14 @@ function displaySelected(filterName){
 
 }
 
+// Not really sure what this is used for yet, prob gonna add some stuff later
 function addTimesUsed(filterCode, filterName) {  
     console.log("inside");
 
-
+    // Asks database hey, is there any in the "Filters" document that as a field "code" that matches the value filterCode
+    // Gets it, and then put all the results into queryFilter
+    // Filters = queryFilter.docs makes list(?) of docs
+    // Filters[0] returns first doc that matches the requirement, Filters[1] for second, etc etc.
     db.collection("Filters").where("code", "==", filterCode)
     .get()
     .then(queryFilter => {
@@ -103,7 +107,8 @@ function addTimesUsed(filterCode, filterName) {
         if (size == 1) {
             id = Filters[0].id;
             var select = Filters[0].data().selected;
-
+            
+            // Not too sure, had an idea but then went nowhere
             if (select == 0){
                 select += 1;
             }
@@ -112,25 +117,6 @@ function addTimesUsed(filterCode, filterName) {
             else{
                 select -= 1;
             }
-
-
-            //select = (select + 1) % 2
-
-            // db.collection("Filters").get()
-            // .then(nextStep => {
-            //     nextStep.forEach(doc =>{
-
-            //         console.log(doc.data().code);
-
-            //     })
-            // })
-
-            
-            //update method will add to the specified field in database, if that field does not exist, it will create that.
-
-            // localStorage.setItem("SelectedRestaurant", filterCode);
-            // test = localStorage.getItem("SelectedRestaurant");
-            // console.log(test);
 
             db.collection("Filters").doc(id).update({
                 //Firebase documentation has this method for incrementation.
@@ -148,6 +134,7 @@ function addTimesUsed(filterCode, filterName) {
         console.log("Error getting documents: ", error);
     });
 
+    // Functions to display the chosen filter button and display the restaurants that got filtered
     displaySelected(filterName);
     displayRestaurants(filterCode);
 }
@@ -163,22 +150,13 @@ function displayRestaurants(filterCode){
         console.log(size);
         // get the documents of query
         restaurants = queryFilter.docs;
-        
-        var x = 0;
-        
-        // db.collection("restaurant").where()
+                
         for (i = 0; i < size; i++){
             restaurantName = restaurants[i].data().name;
             console.log(restaurantName);
             $("#restaurant_suggestions").append("<p class='restaurantNames'>" + restaurantName + "</p>");
         }
-        console.log(x);
-
 })}
-
-// while (true){
-//     displayRestaurants();
-// }
 
 function hide(){
     $(this).remove();
