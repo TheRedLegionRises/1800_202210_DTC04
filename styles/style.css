@@ -167,3 +167,14 @@ body {
   -webkit-line-clamp: 3;
   overflow: hidden;
 }    
+
+.card_for_main{
+  position: relative;
+  display: block;
+  height: 100%;  
+  border-radius: calc(var(--curve) * 1px);
+  overflow: hidden;
+  text-decoration: none;
+  width: 30%;
+  background-color: white;
+}

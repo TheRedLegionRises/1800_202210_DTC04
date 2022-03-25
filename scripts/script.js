@@ -76,6 +76,7 @@ function writeRestaurants() {
         province: "BC",
         review: "4.5/5",
         price: "$",
+        description: "McDonald's is an American multinational fast food corporation, founded in 1940",
     });
     restaurantRef.add({
         id: "r_01",
@@ -84,14 +85,16 @@ function writeRestaurants() {
         province: "BC",
         review: "4.5/5",
         price: "$$",
+        description: "A&W Restaurants is an American chain of fast-food restaurants distinguished by its burgers, draft root beer and root beer floats.",
     });
     restaurantRef.add({
-        id: "r_01",
+        id: "r_02",
         name: "Burger King",
         city: "Vancouver",
         province: "BC",
         review: "3/5",
         price: "$",
+        description: "Burger King is an American multinational chain of hamburger fast food restaurants founded in 1953.",
     });
 }
 
