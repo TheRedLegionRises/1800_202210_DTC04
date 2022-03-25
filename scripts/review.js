@@ -34,7 +34,7 @@ function writeReview() {
         var currentRestaurant = db.collection("reviews");
         currentRestaurant
           .add({
-            Code: restaurantID,
+            Code: RestaurantID,
             UserID: userID,
             UserEmail: userEmail,
             Title: document.getElementById("title").value,
