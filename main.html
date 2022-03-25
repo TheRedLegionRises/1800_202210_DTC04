@@ -59,129 +59,86 @@
   </div>
 
   <!-- Example single danger button -->
-  <div class="container">
-    <button type="button" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-      Action
+  <div class="dropdown">
+    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-bs-toggle="dropdown"
+      aria-expanded="false">
+      Dropdown
     </button>
-    <ul class="dropdown-menu">
-      <li><a class="dropdown-item" href="./price.html">Sort by Price</a></li>
-      <li><a class="dropdown-item" href="#">Filter</a></li>
-      <!-- <li><a class="dropdown-item" href="#">Something else here</a></li> -->
+    <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
+      <li><button id="price_dropdown"class="dropdown-item" type="button">Price</button></li>
+      <li><button class="dropdown-item" type="button">Filter</button></li>
+      <!-- <li><button class="dropdown-item" type="button">Something else here</button></li> -->
     </ul>
   </div>
 
+<!-- FIGURE OUT WHY THIS ISNT WORKING LATER -->
+<!--   <template id="restuarantCardTemplate">
+    <div class="card">
+      <li>
+          <img class="card__image" />
+          <div class="card__overlay">
+            <div class="card__header">
+              <svg class="card__arc" xmlns="http://www.w3.org/2000/svg">
+                <path />
+              </svg>
+              <div class="card__header-text">
+                <h3 class="card__title">PlaceHolder for title</h3>
+                <span class="card__status">PlaceHolder for price range</span>
+                <br>
+                <span class="card__star">PlaceHolder for how many stars</span>
+              </div>
+            </div>
+            <p class="card__description">Place Holder for description</p>
+            <form action="/review.html" class="card__review__button">
+              <input type="submit" value="Review" />
+            </form>
+          </div>
+          </a>
+      </li>
+    </div>
+  </template> -->
+
+
+  <template id="RestaurantCard">
+    <div class="card">
+        <img class="card-img-top">
+        <div class="card-body">
+            <h5 class="card-title">placeholder</h5>
+            <p class="price">price placeholder</p>
+            <p class="card-text"> Add descriptions for restuarants in firebase
+            </p>
+            <form action="/review.html">
+              <input type="submit" value="Review" />
+        </div>
+    </div>
+</template> 
+  
+  
   <div class="container">
-    <br>
     <h1 style="color: white;">Some popular Restaurants!</h1>
     <!-- Here is container for cards  -->
     <div class="container">
-      <div id="restaurants_go_here" class="row row-cols-auto">
-        <ul class="cards">
-          <li>
-            <a href="" class="card">
-              <img src="https://i.pinimg.com/originals/1e/06/ce/1e06cec7e7162fc2db54c68fbf5f0d53.png"
-                class="card__image" alt="" />
-              <div class="card__overlay">
-                <div class="card__header">
-                  <svg class="card__arc" xmlns="http://www.w3.org/2000/svg">
-                    <path />
-                  </svg>
-
-                  <div class="card__header-text">
-                    <h3 class="card__title">McDonald's</h3>
-                    <span class="card__status">$
-                      <br>★★★★☆</span>
-                  </div>
-                </div>
-                <p class="card__description">McDonald's is an American multinational fast food corporation, founded in
-                  1940</p>
-                <form action="/review.html" class="card__description">
-                  <input type="submit" value="Review" />
-                </form>
-              </div>
-            </a>
-          </li>
-
-
-          <li>
-            <a href="" class="card">
-              <img
-                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRbAooljw0_oLOZ6JII6_ZXpUlu4Sm-cD1zuArHGvoGeX5mHxwNZw4xmK77mMvdFVWx3us&usqp=CAU"
-                class="card__image" alt="" />
-              <div class="card__overlay">
-                <div class="card__header">
-                  <svg class="card__arc" xmlns="http://www.w3.org/2000/svg">
-                    <path />
-                  </svg>
-
-                  <div class="card__header-text">
-                    <h3 class="card__title">Burger King</h3>
-                    <span class="card__status">$
-                      <br>★★★☆☆</span>
-                  </div>
-                </div>
-                <p class="card__description">Burger King is an American multinational chain of hamburger fast food
-                  restaurants founded in 1953.</p>
-                <form action="/review.html" class="card__description">
-                  <input type="submit" value="Review" />
-                </form>
-              </div>
-            </a>
-          </li>
-
-
-
-          <li>
-            <a href="" class="card">
-              <img
-                src=https://media.istockphoto.com/vectors/premium-aw-or-wa-letters-logo-design-creative-elegant-curve-vector-vector-id1133596082?k=20&m=1133596082&s=612x612&w=0&h=SJVCZC95xT6n57RxH3en6sc0zCtB2M-TJU5EwzDDRWI=class="card__image"
-                alt="" />
-              <div class="card__overlay">
-                <div class="card__header">
-                  <svg class="card__arc" xmlns="http://www.w3.org/2000/svg">
-                    <path />
-                  </svg>
-
-
-                  <div class="card__header-text">
-                    <h3 class="card__title">A&W</h3>
-                    <span class="card__status">$$
-                      <br> ★★★★☆</span>
-                  </div>
-                </div>
-                <p class="card__description">A&W Restaurants is an American chain of fast-food restaurants distinguished
-                  by its burgers, draft root beer and root beer floats.</p>
-                <form action="/review.html" class="card__description">
-                  <input type="submit" value="Review" />
-                </form>
-              </div>
-            </a>
-          </li>
-        </ul>
+      <div id="RestaurantCardGroup" class="row row-cols-auto">
       </div>
     </div>
+  </div>
 
 
+  <!-- our own footer goes here-->
+  <nav id="footerPlaceholder" class="mt-auto"></nav>
 
+  <!---------------------------------------------->
+  <!-- Your own JavaScript functions go here    -->
+  <!---------------------------------------------->
+  <!-- Link to API keys go here -->
+  <script src="./scripts/firebaseAPI_DT04.js"></script>
 
+  <!-- Link to scripts of your own -->
+  <script src="./scripts/authentication.js"></script>
+  <script src="./scripts/skeleton.js"></script>
+  <script src="./scripts/main.js"></script>
+  <script src="./scripts/script.js"></script>
 
-
-
-
-
-    <!-- our own footer goes here-->
-    <nav id="footerPlaceholder" class="mt-auto"></nav>
-
-    <!---------------------------------------------->
-    <!-- Your own JavaScript functions go here    -->
-    <!---------------------------------------------->
-    <!-- Link to API keys go here -->
-    <script src="./scripts/firebaseAPI_DT04.js"></script>
-
-    <!-- Link to scripts of your own -->
-    <script src="./scripts/authentication.js"></script>
-    <script src="./scripts/skeleton.js"></script>
-    <script src="./scripts/script.js"></script>
 
 </body>
 
