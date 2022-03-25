@@ -58,18 +58,7 @@
     </div>
   </div>
 
-  <!-- Example single danger button -->
-  <div class="dropdown">
-    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-bs-toggle="dropdown"
-      aria-expanded="false">
-      Dropdown
-    </button>
-    <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
-      <li><button onclick="sort_by_price_restaurant()" id="price_dropdown"class="dropdown-item" type="button">Price</button></li>
-      <li><button class="dropdown-item" type="button">Filter</button></li>
-      <!-- <li><button class="dropdown-item" type="button">Something else here</button></li> -->
-    </ul>
-  </div>
+  
 
 <!-- FIGURE OUT WHY THIS ISNT WORKING LATER -->
 <!--   <template id="restuarantCardTemplate">
@@ -116,6 +105,19 @@
   
   <div class="container">
     <h1 style="color: white;">Some popular Restaurants!</h1>
+      <!-- Example single danger button -->
+  <div class="dropdown">
+    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-bs-toggle="dropdown"
+      aria-expanded="false">
+      Dropdown
+    </button>
+    <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
+      <li><button onclick="sort_by_price_restaurant()" id="price_dropdown"class="dropdown-item" type="button">Price</button></li>
+      <li><button class="dropdown-item" type="button">Filter</button></li>
+      <!-- <li><button class="dropdown-item" type="button">Something else here</button></li> -->
+    </ul>
+  </div>
+  <br>
     <!-- Here is container for cards  -->
     <div class="container">
       <div id="RestaurantCardGroup" class="row row-cols-auto">
