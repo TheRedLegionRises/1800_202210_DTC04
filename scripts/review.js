@@ -43,7 +43,7 @@ function writeReview() {
             Description: document.getElementById("description").value,
           })
           .then(() => {
-            window.location.href = "main.html";
+            window.location.href = "thanks.html";
           });
       });
     }
