@@ -167,7 +167,7 @@ function populate_restaurants() {
     });
 }
 
-sort_by_restaurant();
+populate_restaurants();
 
 function setRestuarantData(id) {
   localStorage.setItem("RestaurantID", id);
