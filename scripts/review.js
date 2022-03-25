@@ -1,3 +1,29 @@
+let restaurantID = localStorage.getItem("restaurantID");
+
+db.collection("restaurant")
+  .where("id", "==", restaurantID)
+  .get()
+  .then((queryRestaurant) => {
+    //see how many results you have got from the query
+    size = queryRestaurant.size;
+    // get the documents of query
+    Restaurants = queryRestaurant.docs;
+
+    // We want to have one document per , so if the the result of
+    //the query is more than one, we can check it right now and clean the DB if needed.
+    if ((size = 1)) {
+      var thisRestaurant = Restaurants[0].data();
+      restaurantName = thisRestaurant.name;
+      console.log(restaurantName);
+      document.getElementById("RestaurantName").innerHTML = restaurantName;
+    } else {
+      console.log("Query has more than one data");
+    }
+  })
+  .catch((error) => {
+    console.log("Error getting documents: ", error);
+  });
+
 function writeReview() {
   firebase.auth().onAuthStateChanged((user) => {
     if (user) {
@@ -8,6 +34,7 @@ function writeReview() {
         var currentRestaurant = db.collection("reviews");
         currentRestaurant
           .add({
+            Code: restaurantID,
             UserID: userID,
             UserEmail: userEmail,
             Title: document.getElementById("title").value,
