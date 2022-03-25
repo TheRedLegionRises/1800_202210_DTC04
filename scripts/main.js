@@ -168,13 +168,9 @@ function populate_restaurants() {
 
 
 
-<<<<<<< Updated upstream
 populate_restaurants()
-=======
-sort_by_restaurant()
 
 function setRestuarantData(id) {
     localStorage.setItem("RestaurantID", id);
   }
   
->>>>>>> Stashed changes
