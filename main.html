@@ -59,14 +59,15 @@
   </div>
 
   <!-- Example single danger button -->
-  <div class="container">
-    <button type="button" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-      Action
+  <div class="dropdown">
+    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-bs-toggle="dropdown"
+      aria-expanded="false">
+      Dropdown
     </button>
-    <ul class="dropdown-menu">
-      <li><a class="dropdown-item" href="./price.html">Sort by Price</a></li>
-      <li><a class="dropdown-item" href="#">Filter</a></li>
-      <!-- <li><a class="dropdown-item" href="#">Something else here</a></li> -->
+    <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
+      <li><button id="price_dropdown"class="dropdown-item" type="button">Price</button></li>
+      <li><button class="dropdown-item" type="button">Filter</button></li>
+      <!-- <li><button class="dropdown-item" type="button">Something else here</button></li> -->
     </ul>
   </div>
 
