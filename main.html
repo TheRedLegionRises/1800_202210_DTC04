@@ -2,137 +2,163 @@
 <html lang="en">
 
 <head>
-    <title>Main Page</title>
-    <meta name="Main Page" content="COMP 1800 Project">
+  <title>Main Page</title>
+  <meta name="Main Page" content="COMP 1800 Project">
 
-    <!------------------------>
-    <!-- Required meta tags -->
-    <!------------------------>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!------------------------>
+  <!-- Required meta tags -->
+  <!------------------------>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <!------------------------------------------>
-    <!-- Bootstrap Library CSS JS CDN go here -->
-    <!------------------------------------------>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
-        </script>
+  <!------------------------------------------>
+  <!-- Bootstrap Library CSS JS CDN go here -->
+  <!------------------------------------------>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
+    </script>
 
-    <!-------------------------------------------------------->
-    <!-- Firebase 8 Library related CSS, JS, JQuery go here -->
-    <!-------------------------------------------------------->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.js"></script>
-    <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.css" />
+  <!-------------------------------------------------------->
+  <!-- Firebase 8 Library related CSS, JS, JQuery go here -->
+  <!-------------------------------------------------------->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.js"></script>
+  <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.css" />
 
-    <!-------------------------------------------->
-    <!-- Other libraries and styles of your own -->
-    <!-------------------------------------------->
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link rel="stylesheet" href="./styles/style.css">
+  <!-------------------------------------------->
+  <!-- Other libraries and styles of your own -->
+  <!-------------------------------------------->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="./styles/style.css">
 
 </head>
 
 <body id="main_page_background" class="d-flex flex-column min-vh-100">
 
-    <!-- our own navbar goes here -->
-    <nav id="nav_main"></nav>
+  <!-- our own navbar goes here -->
+  <nav id="nav_main"></nav>
 
 
-    <!-- BODY GOES HERE -->
+  <!-- BODY GOES HERE -->
 
 
-    <div class="h-100 row align-items-center mx-auto">
-        <div class="jumbotron">
-            <h1 class="display-67 text-white">Find Restaurants to please your palate!</h1>
-            <p class="lead text-white">Select your preferences</p>
+  <div class="h-100 row align-items-center mx-auto">
+    <div class="jumbotron">
+      <h1 class="display-67 text-white">Find Restaurants to please your palate!</h1>
+      <p class="lead text-white">Select your preferences</p>
 
-            <p class="lead">
-                <a class="btn btn-light btn-lg" href="#" role="button">Start Now</a>
-            </p>
-        </div>
+      <p class="lead">
+        <a class="btn btn-light btn-lg" href="#" role="button">Start Now</a>
+      </p>
     </div>
+  </div>
 
+  <!-- Example single danger button -->
+  <div class="container">
+    <button type="button" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+      Action
+    </button>
+    <ul class="dropdown-menu">
+      <li><a class="dropdown-item" href="./price.html">Sort by Price</a></li>
+      <li><a class="dropdown-item" href="#">Filter</a></li>
+      <!-- <li><a class="dropdown-item" href="#">Something else here</a></li> -->
+    </ul>
+  </div>
+
+  <div class="container">
+    <br>
+    <h1 style="color: white;">Some popular Restaurants!</h1>
+    <!-- Here is container for cards  -->
     <div class="container">
-        <br>
-        <h1 style="color: white;">Some popular Restaurants!</h1>
-        <!-- Here is container for cards  -->
-        <div class="container">
-            <div id="restaurants_go_here" class="row row-cols-auto">
-                <ul class="cards">
-                    <li>
-                      <a href="" class="card">
-                        <img src="https://i.pinimg.com/originals/1e/06/ce/1e06cec7e7162fc2db54c68fbf5f0d53.png" class="card__image" alt="" />
-                        <div class="card__overlay">
-                          <div class="card__header">
-                            <svg class="card__arc" xmlns="http://www.w3.org/2000/svg"><path /></svg>                     
-                  
-                            <div class="card__header-text">
-                              <h3 class="card__title">McDonald's</h3>            
-                              <span class="card__status">$
-                              <br>★★★★☆</span>
-                            </div>
-                          </div>
-                          <p class="card__description">McDonald's is an American multinational fast food corporation, founded in 1940</p>
-                          <form action="/review.html" class="card__description">
-                            <input type="submit" value="Review" />
-                        </form>
-                        </div>
-                      </a>      
-                    </li>
-                    
-                    
-                    <li>
-                      <a href="" class="card">
-                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRbAooljw0_oLOZ6JII6_ZXpUlu4Sm-cD1zuArHGvoGeX5mHxwNZw4xmK77mMvdFVWx3us&usqp=CAU" class="card__image" alt="" />
-                        <div class="card__overlay">        
-                          <div class="card__header">
-                            <svg class="card__arc" xmlns="http://www.w3.org/2000/svg"><path /></svg>                 
-                  
-                            <div class="card__header-text">
-                              <h3 class="card__title">Burger King</h3>
-                              <span class="card__status">$
-                              <br>★★★☆☆</span>
-                            </div>
-                          </div>
-                          <p class="card__description">Burger King is an American multinational chain of hamburger fast food restaurants founded in 1953.</p>
-                          <form action="/review.html" class="card__description">
-                            <input type="submit" value="Review" />
-                        </form>
-                        </div>
-                      </a>
-                    </li>
-                    
-                    
-                    
-                    <li>
-                      <a href="" class="card">
-                        <img src=https://media.istockphoto.com/vectors/premium-aw-or-wa-letters-logo-design-creative-elegant-curve-vector-vector-id1133596082?k=20&m=1133596082&s=612x612&w=0&h=SJVCZC95xT6n57RxH3en6sc0zCtB2M-TJU5EwzDDRWI= class="card__image" alt="" />
-                        <div class="card__overlay">
-                          <div class="card__header">
-                            <svg class="card__arc" xmlns="http://www.w3.org/2000/svg"><path /></svg>                     
-                            
-                                     
-                            <div class="card__header-text">
-                              <h3 class="card__title">A&W</h3>
-                              <span class="card__status">$$
-                              <br> ★★★★☆</span>
-                            </div>          
-                          </div>
-                          <p class="card__description">A&W Restaurants is an American chain of fast-food restaurants distinguished by its burgers, draft root beer and root beer floats.</p>
-                          <form action="/review.html" class="card__description">
-                            <input type="submit" value="Review" />
-                        </form>
-                        </div>
-                      </a>
-                    </li>    
-                  </ul>
-        </div>
+      <div id="restaurants_go_here" class="row row-cols-auto">
+        <ul class="cards">
+          <li>
+            <a href="" class="card">
+              <img src="https://i.pinimg.com/originals/1e/06/ce/1e06cec7e7162fc2db54c68fbf5f0d53.png"
+                class="card__image" alt="" />
+              <div class="card__overlay">
+                <div class="card__header">
+                  <svg class="card__arc" xmlns="http://www.w3.org/2000/svg">
+                    <path />
+                  </svg>
+
+                  <div class="card__header-text">
+                    <h3 class="card__title">McDonald's</h3>
+                    <span class="card__status">$
+                      <br>★★★★☆</span>
+                  </div>
+                </div>
+                <p class="card__description">McDonald's is an American multinational fast food corporation, founded in
+                  1940</p>
+                <form action="/review.html" class="card__description">
+                  <input type="submit" value="Review" />
+                </form>
+              </div>
+            </a>
+          </li>
+
+
+          <li>
+            <a href="" class="card">
+              <img
+                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRbAooljw0_oLOZ6JII6_ZXpUlu4Sm-cD1zuArHGvoGeX5mHxwNZw4xmK77mMvdFVWx3us&usqp=CAU"
+                class="card__image" alt="" />
+              <div class="card__overlay">
+                <div class="card__header">
+                  <svg class="card__arc" xmlns="http://www.w3.org/2000/svg">
+                    <path />
+                  </svg>
+
+                  <div class="card__header-text">
+                    <h3 class="card__title">Burger King</h3>
+                    <span class="card__status">$
+                      <br>★★★☆☆</span>
+                  </div>
+                </div>
+                <p class="card__description">Burger King is an American multinational chain of hamburger fast food
+                  restaurants founded in 1953.</p>
+                <form action="/review.html" class="card__description">
+                  <input type="submit" value="Review" />
+                </form>
+              </div>
+            </a>
+          </li>
+
+
+
+          <li>
+            <a href="" class="card">
+              <img
+                src=https://media.istockphoto.com/vectors/premium-aw-or-wa-letters-logo-design-creative-elegant-curve-vector-vector-id1133596082?k=20&m=1133596082&s=612x612&w=0&h=SJVCZC95xT6n57RxH3en6sc0zCtB2M-TJU5EwzDDRWI=class="card__image"
+                alt="" />
+              <div class="card__overlay">
+                <div class="card__header">
+                  <svg class="card__arc" xmlns="http://www.w3.org/2000/svg">
+                    <path />
+                  </svg>
+
+
+                  <div class="card__header-text">
+                    <h3 class="card__title">A&W</h3>
+                    <span class="card__status">$$
+                      <br> ★★★★☆</span>
+                  </div>
+                </div>
+                <p class="card__description">A&W Restaurants is an American chain of fast-food restaurants distinguished
+                  by its burgers, draft root beer and root beer floats.</p>
+                <form action="/review.html" class="card__description">
+                  <input type="submit" value="Review" />
+                </form>
+              </div>
+            </a>
+          </li>
+        </ul>
+      </div>
     </div>
 
 
