@@ -5,6 +5,7 @@ function write_filters(){
         code: "SUSHI",
         filterName: "Sushi",
         cuisineType: "Asian",
+        selected: 0,
 
     });
 
@@ -12,12 +13,16 @@ function write_filters(){
         code: "HMBRGR",
         filterName: "Hamburgers",
         cuisineType:"Western",
+        selected: 0,
+
     });
 
     filtersRef.add({
         code: "BBT",
         filterName: "Bubble Tea",
         cuisineType: "Asian",
+        selected: 0,
+
     });
 
     
@@ -30,9 +35,10 @@ function displayFilters() {
     db.collection("Filters").get()
         .then(allFilters => {
             allFilters.forEach(doc => {
+                console.log(doc.data().code);
                 var filterName = doc.data().filterName; //gets the name field
                 var filterCode = doc.data().code; //gets the unique ID field
-                // var test = doc.data().selected; //gets the unique ID field
+                // console.log(test)
                 // var test1 = !test;
 
                 
@@ -44,7 +50,8 @@ function displayFilters() {
                 testFilterButton.querySelector(".filter_button").innerHTML = filterName;
                 //testFilterButton.querySelector('a').onclick = () => setFilterData(filterCode);
                 //this is the line added so that it makes the icon clickable and call another function
-                testFilterButton.querySelector('.filter_button').onclick = () => addTimesUsed(filterCode);
+                testFilterButton.querySelector('.filter_button').onclick = () => addTimesUsed(filterCode, filterName);
+                //testFilterButton.querySelector(".filter_button").onclick = () => displaySelected(filterName);
                 filterOptionsTab.appendChild(testFilterButton);
 
                 
@@ -52,68 +59,37 @@ function displayFilters() {
 
         })
 }
+
 displayFilters();
 
-// function display_frequent(){
+function displaySelected(filterName){
+    $(".selected_filter_button").remove();
 
-//     var firstID = Null;
-//     var secondID = Null;
-//     var thirdID = Null;
-//     var firstScore = Null;
-//     var secondScore = Null;
-//     var thirdScore = Null;
+    let filterSelectedTemplate = document.getElementById("selectedOptionsTemplate");
+    let filterSelectedTab = document.getElementById("selected_filters");
 
-//     db.collection("Filters").get()
-//     .then(mostScores =>{
-//         mostScores.forEach(doc =>{
-//             var filterID = doc.data().code;
-//             var scoreAmount = doc.data().scores;
+    // db.collection("Filters").get()
+    // .then(allFilters => {
+    //     allFilters.forEach(doc => {
 
-//             if (scoreAmount > firstScore){
-//                 thirdID = secondID;
-//                 secondID = firstID;
-//                 firstID = filterID;
+    //         let selectFilterButton = filterSelectedTemplate.content.cloneNode(true);
+    //         selectFilterButton.querySelector(".selected_filter_button").innerHTML = filterName;
+    //         //selectFilterButton.querySelector(".filter_button").onclick = () =>
+    //         filterSelectedTab.appendChild(selectFilterButton)
+            
+    //     })
+    // })
 
-//                 thirdScore = secondScore;
-//                 secondScore = firstScore;
-//                 firstScore = scoreAmount;
-//             }
+    let selectFilterButton = filterSelectedTemplate.content.cloneNode(true);
+    selectFilterButton.querySelector(".selected_filter_button").innerHTML = filterName;
+    //selectFilterButton.querySelector(".filter_button").onclick = () =>
+    filterSelectedTab.appendChild(selectFilterButton)
 
-//             else if (scoreAmount > secondScore){
-//                 thirdID = secondID;
-//                 secondID = filterID;
+}
 
-//                 thirdScore = secondScore;
-//                 secondScore = scoreAmount;
-//             }
-
-//             else if (scoreAmount > thirdScore){
-//                 thirdID = filterID;
-
-//                 thirdScore = filterScore;
-//             }            
-//         })
-
-//         let testFilterButton = filterOptionsTemplate.content.cloneNode(true);
-
-//         testFilterButton.querySelector(".filter_button").innerHTML = filterName;
-//         //testFilterButton.querySelector('a').onclick = () => setFilterData(filterCode);
-//         //this is the line added so that it makes the icon clickable and call another function
-//         testFilterButton.querySelector('.filter_button').onclick = () => addTimesUsed(filterCode);
-//         filterOptionsTab.appendChild(testFilterButton);
-
-
-//     })
-
-//     collections.sort(mostFiltered.keyset());
-
-// }
-
-// display_frequent();
-
-function addTimesUsed(filterCode, select) {  
+function addTimesUsed(filterCode, filterName) {  
     console.log("inside");
-    console.log(select);
+
 
     db.collection("Filters").where("code", "==", filterCode)
     .get()
@@ -122,16 +98,45 @@ function addTimesUsed(filterCode, select) {
         size = queryFilter.size;
         // get the documents of query
         Filters = queryFilter.docs;
-        // test
-        if (size = 1) {
-            id = Filters[0].id;
-            console.log(id);
 
+        // test
+        if (size == 1) {
+            id = Filters[0].id;
+            var select = Filters[0].data().selected;
+
+            if (select == 0){
+                select += 1;
+            }
+            
+
+            else{
+                select -= 1;
+            }
+
+
+            //select = (select + 1) % 2
+
+            // db.collection("Filters").get()
+            // .then(nextStep => {
+            //     nextStep.forEach(doc =>{
+
+            //         console.log(doc.data().code);
+
+            //     })
+            // })
+
+            
             //update method will add to the specified field in database, if that field does not exist, it will create that.
+
+            // localStorage.setItem("SelectedRestaurant", filterCode);
+            // test = localStorage.getItem("SelectedRestaurant");
+            // console.log(test);
+
             db.collection("Filters").doc(id).update({
                 //Firebase documentation has this method for incrementation.
                 // scores: firebase.firestore.FieldValue.increment(1)
-                timesUsed: firebase.firestore.FieldValue.increment(1)
+                //timesUsed: firebase.firestore.FieldValue.increment(1)
+                selected: select
 
             })
 
@@ -142,12 +147,46 @@ function addTimesUsed(filterCode, select) {
     .catch((error) => {
         console.log("Error getting documents: ", error);
     });
+
+    displaySelected(filterName);
+    displayRestaurants(filterCode);
+}
+
+function displayRestaurants(filterCode){
+    $(".restaurantNames").remove();
+
+    db.collection("restaurant").where("filter", "==", filterCode)
+    .get()
+    .then(queryFilter => {
+        //see how many results you have got from the query
+        size = queryFilter.size;
+        console.log(size);
+        // get the documents of query
+        restaurants = queryFilter.docs;
+        
+        var x = 0;
+        
+        // db.collection("restaurant").where()
+        for (i = 0; i < size; i++){
+            restaurantName = restaurants[i].data().name;
+            console.log(restaurantName);
+            $("#restaurant_suggestions").append("<p class='restaurantNames'>" + restaurantName + "</p>");
+        }
+        console.log(x);
+
+})}
+
+// while (true){
+//     displayRestaurants();
+// }
+
+function hide(){
+    $(this).remove();
 }
 
 function setup(){
     console.log("Start Setup");
-    //$(".filter_button").click(selectFilter);
-    // $(".filter_button").click(add_filter);
+    $("body").on("click", ".selected_filter_button", hide);
 
 }
 
