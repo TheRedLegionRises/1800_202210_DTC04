@@ -30,9 +30,10 @@ function write_filters() {
 
 function searchFilters(){
     searchName = document.getElementById("filterSearch").value;
+    serchName = searchName.toLowerCase();
     console.log(searchName);
     if (searchName != null && searchName != "") {
-        db.collection("Filters").where("filterName", "==", searchName)
+        db.collection("Filters").where("searchName", "==", searchName)
         .get() 
             .then(searchResult => { 
                 size = searchResult.size;
@@ -208,12 +209,13 @@ function displayRestaurants(filterCode) {
 }
 
 function hide() {
+    $("#restaurant_suggestions").empty();
     $(this).remove();
 }
 
 function setup() {
     console.log("Start Setup");
-    //$("body").on("click", ".selected_filter_button", hide);
+    $("body").on("click", ".selected_filter_button", hide);
 
 }
 
