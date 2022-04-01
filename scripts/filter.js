@@ -10,7 +10,7 @@ function write_filters() {
     });
 
     filtersRef.add({
-        code: "HMBRGR",
+        code: "BURGR",
         filterName: "Hamburgers",
         cuisineType: "Western",
         selected: 0,
@@ -50,6 +50,7 @@ function searchFilters(){
             })
     } else {
         displayFilters();
+        displayAllRestaurants();
     }
 
 }
@@ -166,8 +167,45 @@ function addTimesUsed(filterCode, filterName) {
 
     // Functions to display the chosen filter button and display the restaurants that got filtered
     displaySelected(filterName);
+
     displayRestaurants(filterCode);
 }
+
+function displayAllRestaurants(){
+    let RestaurantCard = document.getElementById("RestaurantCard");
+    let RestaurantCardGroup = document.getElementById("restaurant_suggestions");
+    //$(".restaurantNames").remove();
+    $("#restaurant_suggestions").empty();
+
+        db.collection("restaurant").get()
+        .then(allRestaurants => {
+            allRestaurants.forEach(doc => {
+                var restaurantName = doc.data().name;
+                console.log(restaurantName);
+                //console.log(restaurantName);
+                //$("#restaurant_suggestions").append("<p class='restaurantNames'>" + restaurantName + "</p>");
+
+                var RestaurantID = doc.data().id;
+                var RestaurantPrice = doc.data().price;
+                var RestaurantDescription = doc.data().description;
+
+                let newRestaurantCard = RestaurantCard.content.cloneNode(true);
+                newRestaurantCard.querySelector(".card-title").innerHTML = restaurantName;
+                newRestaurantCard.querySelector(".price").innerHTML = RestaurantPrice;
+                newRestaurantCard.querySelector(".card-text").innerHTML = RestaurantDescription;
+                //newRestaurantCard.querySelector("a").onclick = () => setRestuarantData(RestaurantID);
+
+                newRestaurantCard.querySelector(
+                    "img"
+                ).src = `./images/${RestaurantID}.jpg`;
+
+                RestaurantCardGroup.appendChild(newRestaurantCard);
+
+})
+        })
+    }
+
+    displayAllRestaurants();
 
 function displayRestaurants(filterCode) {
     let RestaurantCard = document.getElementById("RestaurantCard");
@@ -206,16 +244,18 @@ function displayRestaurants(filterCode) {
                 RestaurantCardGroup.appendChild(newRestaurantCard);
             }
         })
+    
 }
 
-function hide() {
+function selectedFiliterButton() {
     $("#restaurant_suggestions").empty();
     $(this).remove();
+    displayAllRestaurants();
 }
 
 function setup() {
     console.log("Start Setup");
-    $("body").on("click", ".selected_filter_button", hide);
+    $("body").on("click", ".selected_filter_button", selectedFiliterButton);
 
 }
 
