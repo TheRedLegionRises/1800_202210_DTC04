@@ -54,6 +54,12 @@
 
     </div> -->
 
+    <div class="input-group">
+        <input type="search" class="form-control rounded" placeholder="Search for Filters..." aria-label="Search"
+            aria-describedby="search-addon" id="filterSearch" />
+        <a type="button" onclick="searchFilters()" class="btn btn-light">Search</a>
+    </div>
+
     <!-- Template for displaying filter options
      -->
     <template id="filterOptionsTemplate">
@@ -73,9 +79,11 @@
     </template> -->
 
     <!-- the two areas where the buttons will be shown -->
+
     <div id="filter_options_tab">
-        <br>
         <h3>Available Filters</h3>
+        <br>
+        <div id="filtersShown"></div>
     </div>
 
     <div id="selected_filters">

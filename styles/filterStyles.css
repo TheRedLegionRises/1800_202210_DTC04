@@ -78,3 +78,7 @@ body{
   background-color: white;
   margin: 10px 30px;
 }
+
+#filterSearch{
+  width: 50%;
+}

@@ -28,9 +28,50 @@ function write_filters() {
 
 }
 
-function displayFilters() {
+function searchFilters(){
+    searchName = document.getElementById("filterSearch").value;
+    console.log(searchName);
+    if (searchName != null && searchName != "") {
+        db.collection("Filters").where("filterName", "==", searchName)
+        .get() 
+            .then(searchResult => { 
+                size = searchResult.size;
+                filters = searchResult.docs;
+                console.log("search");
+
+                for(i=0; i < size; i++){
+                    filterName = filters[i].data().filterName;
+                    code = filters[i].data().code;
+                    console.log(filterName);
+                    displaySearchFilter(filterName, code);
+                }
+                //displaySearchFilter(searchResult);
+            })
+    } else {
+        displayFilters();
+    }
+
+}
+
+function displaySearchFilter(filterName, filterCode){
+    $("#filtersShown").empty();
     let filterOptionsTemplate = document.getElementById("filterOptionsTemplate");
-    let filterOptionsTab = document.getElementById("filter_options_tab");
+    let filterOptionsTab = document.getElementById("filtersShown");
+
+    let testFilterButton = filterOptionsTemplate.content.cloneNode(true);
+    testFilterButton.querySelector(".filter_button").innerHTML = filterName;
+    testFilterButton.querySelector('.filter_button').onclick = () => addTimesUsed(filterCode, filterName);
+    //testFilterButton.querySelector(".filter_button").onclick = () => displaySelected(filterName);
+    filterOptionsTab.appendChild(testFilterButton);
+
+
+
+}
+
+function displayFilters() {
+    $("#filtersShown").empty();
+    let filterOptionsTemplate = document.getElementById("filterOptionsTemplate");
+    let filterOptionsTab = document.getElementById("filtersShown");
 
     db.collection("Filters").get()
         .then(allFilters => {
@@ -68,21 +109,9 @@ function displaySelected(filterName) {
     let filterSelectedTemplate = document.getElementById("selectedOptionsTemplate");
     let filterSelectedTab = document.getElementById("selected_filters");
 
-    // db.collection("Filters").get()
-    // .then(allFilters => {
-    //     allFilters.forEach(doc => {
-
-    //         let selectFilterButton = filterSelectedTemplate.content.cloneNode(true);
-    //         selectFilterButton.querySelector(".selected_filter_button").innerHTML = filterName;
-    //         //selectFilterButton.querySelector(".filter_button").onclick = () =>
-    //         filterSelectedTab.appendChild(selectFilterButton)
-
-    //     })
-    // })
-
     let selectFilterButton = filterSelectedTemplate.content.cloneNode(true);
     selectFilterButton.querySelector(".selected_filter_button").innerHTML = filterName;
-    //selectFilterButton.querySelector(".filter_button").onclick = () =>
+    //selectFilterButton.querySelector(".filter_button").onclick = () => 
     filterSelectedTab.appendChild(selectFilterButton)
 
 }
@@ -184,7 +213,7 @@ function hide() {
 
 function setup() {
     console.log("Start Setup");
-    $("body").on("click", ".selected_filter_button", hide);
+    //$("body").on("click", ".selected_filter_button", hide);
 
 }
 
