@@ -1,5 +1,5 @@
 eater_type_array = ['omnivoreInput', 'veganInput', 'vegetarianInput', 'lowcarbInput', 'nosugarInput', 'pescetarianInput']
-cuisine_type_array = ['French', 'Italian', 'Greek', 'Spanish', 'Mediterranean', 'Lebanese', 'Moroccan', 'Turkish', 'Chinese', 'Indian', 'Japanese', 'Korean', 'Thai']
+cuisine_type_array = ['French', 'Italian', 'Greek', 'Spanish', 'Mediterranean', 'Lebanese', 'Moroccan', 'Turkish', 'American', 'Chinese', 'Indian', 'Japanese', 'Korean', 'Thai']
 var currentUser
 
 function preCheckBoxes() {
@@ -72,5 +72,39 @@ function updateUserPreference() {
     // document.getElementById('eaterTypeInfoFields').disabled = true
     // document.getElementById('cuisineInfoFields').disabled = true
 }
+
+
+function populateWithPreference() {
+    $("#RestaurantCardGroup").empty();
+
+    let RestaurantCard = document.getElementById("RestaurantCard");
+    let RestaurantCardGroup = document.getElementById("RestaurantCardGroup");
+
+    db.collection("restaurant")
+    .orderBy("price")
+    .limit(10)
+    .get()
+        .then(AllRestaurants => {
+            AllRestaurants.forEach(doc => {
+                restaurant_eater_type =  doc.data().eater_type
+                restaurant_cuisine_type = doc.data().cuisine_type
+                
+                var RestaurantName = doc.data().name
+                var RestaurantID = doc.data().id
+                var RestaurantPrice = doc.data().price
+                var RestaurantDescription = doc.data().description
+                
+
+                let newRestaurantCard = RestaurantCard.content.cloneNode(true)
+                newRestaurantCard.querySelector('.card-title').innerHTML = RestaurantName
+                newRestaurantCard.querySelector('.price').innerHTML = RestaurantPrice
+                newRestaurantCard.querySelector('.card-text').innerHTML = RestaurantDescription
+                newRestaurantCard.querySelector("img").src = `./images/${RestaurantID}.jpg`
+                RestaurantCardGroup.appendChild(newRestaurantCard)
+
+            })
+        })
+}
+
 
 preCheckBoxes()
