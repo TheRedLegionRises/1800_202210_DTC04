@@ -84,19 +84,34 @@
     <!-- maybe implement later -->
     <!-- <button type="button" id="submit">Submit</button> -->
 
-    <!-- restaurant suggestion area -->
-    <div id="restaurant_suggestions">
-        
-        <h2>Here are your suggested restaurants:</h2>
-        <hr>
+    <template id="RestaurantCard">
+        <div class="card_for_filter">
+            <img class="card-img-top">
+            <div class="card-body">
+                <h5 class="card-title">placeholder</h5>
+                <p class="price">price placeholder</p>
+                <p class="card-text"> Add descriptions for restuarants in firebase
+                </p>
+                <a href="review.html" class="link-dark">Review</a>
+            </div>
+        </div>
+    </template>
 
+    <div>
+        <h2>Here are your suggested restaurants:</h2>
+    <hr>
+        <!-- restaurant suggestion area -->
+        <div id="restaurant_suggestions" class="row row-cols-auto">
+
+
+        </div>
 
     </div>
-</div>
+    </div>
 
     <!-- our own footer goes here-->
 
-    <nav id="footerPlaceholder"color="black"></nav>
+    <nav id="footerPlaceholder" color="black"></nav>
 
     <!---------------------------------------------->
     <!-- Your own JavaScript functions go here    -->
