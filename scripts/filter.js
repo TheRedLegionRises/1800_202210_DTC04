@@ -106,7 +106,7 @@ function displayFilters() {
 displayFilters();
 
 function displaySelected(filterName) {
-    $(".selected_filter_button").remove();
+    //$(".selected_filter_button").remove();
 
     let filterSelectedTemplate = document.getElementById("selectedOptionsTemplate");
     let filterSelectedTab = document.getElementById("selected_filters");
@@ -174,7 +174,6 @@ function addTimesUsed(filterCode, filterName) {
 function displayAllRestaurants(){
     let RestaurantCard = document.getElementById("RestaurantCard");
     let RestaurantCardGroup = document.getElementById("restaurant_suggestions");
-    //$(".restaurantNames").remove();
     $("#restaurant_suggestions").empty();
 
         db.collection("restaurant").get()

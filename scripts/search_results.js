@@ -1,13 +1,15 @@
 
 function displaySearchResults() {
     testSearch = document.getElementById("mySearch").value;
-    let result = testSearch.toLowerCase()
+    console.log(testSearch);
+    let result = testSearch.toLowerCase();
     if (result != null && result != "") {
-        db.collection("restaurant").where("search", "==", result,)
+        db.collection("restaurant").where("name", "==", testSearch)
 
         .get() 
             .then(result => { 
                 size = result.size;
+                console.log(size);
                 console.log("search");
                 populate_restaurants(result);
             })
