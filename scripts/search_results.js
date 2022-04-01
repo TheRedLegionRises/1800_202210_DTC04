@@ -1,13 +1,15 @@
 
 function displaySearchResults() {
     testSearch = document.getElementById("mySearch").value;
-    if (testSearch != null && testSearch != "") {
-        db.collection("restaurant").where("search", "==", testSearch)
+    let result = testSearch.toLowerCase()
+    if (result != null && result != "") {
+        db.collection("restaurant").where("search", "==", result,)
+
         .get() 
-            .then(searchResult => { 
-                size = searchResult.size;
+            .then(result => { 
+                size = result.size;
                 console.log("search");
-                populate_restaurants(searchResult);
+                populate_restaurants(result);
             })
     } else {
         db.collection("restaurant").get() 
@@ -17,7 +19,6 @@ function displaySearchResults() {
     }
 }
 
-displaySearchResults()
 
 function populate_restaurants(Docs) {
     let RestaurantCard = document.getElementById("RestaurantCard");
