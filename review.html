@@ -28,6 +28,7 @@
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-storage.js"></script>
     <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.css" />
 
     <!-------------------------------------------->
@@ -48,16 +49,17 @@
 
     <!-- the body of your page goes here -->
     <div style="margin: auto;">
+        <br>
         <h1>Review for <span id="RestaurantName"></span></h1>
         <!-- <h1>Restaurant Review</h1> -->
         <br>
         <form class="form-control align-items-center">
             <div class="form-group">
-                <label for="exampleFormControlInput1">Add a title</label>
+                <label for="exampleFormControlInput1">Add a review title</label>
                 <input type="text" class="form-control" id="title" placeholder="Title">
             </div><br>
             <div class="form-group">
-                <label for="exampleFormControlSelect1">How would you rate your experience in this restaurant? </label>
+                <label for="exampleFormControlSelect1">How would you rate your experience at this restaurant? </label>
                 <select class="form-control" id="level">
                     <option>★☆☆☆☆ Not recommend</option>
                     <option>★★☆☆☆ Could've been better</option>
@@ -67,7 +69,7 @@
                 </select>
                 <br>
                 <div class="form-group">
-                    <label for="exampleFormControlSelect1">What do you think of this restaurant's price range? </label>
+                    <label for="exampleFormControlSelect1">What do you think of this restaurant's price? </label>
                     <select class="form-control" id="price">
                         <option>$ Low-price</option>
                         <option>$$ Acceptable price</option>
@@ -80,6 +82,12 @@
                         <textarea class="form-control" id="description" rows="7"></textarea>
                     </div>
                     <br>
+
+                    <div class="form-group">
+                        <label for="exampleFormControlFile1">Share your food picture: </label><br>
+                        <input type="file" class="form-control-file" id="exampleFormControlFile1" accept="image/*" />
+                    </div>
+
                     <br>
                     <div class="d-flex justify-content-end">
                         <button type="button" class="btn btn-lg btn-dark pull-right"
