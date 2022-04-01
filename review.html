@@ -47,49 +47,47 @@
     <nav id="nav_main"></nav>
 
     <!-- the body of your page goes here -->
-    <h1>Review for <span id="RestaurantName"></span></h1>
-    <!-- <h1>Restaurant Review</h1> -->
-    <br>
-    <form>
-        <div class="form-group">
-            <label for="exampleFormControlInput1">Add a title</label>
-            <input type="text" class="form-control" id="title" placeholder="Title">
-        </div><br>
-        <div class="form-group">
-            <label for="exampleFormControlSelect1">How would you rate your experience in this restaurant? </label>
-            <select class="form-control" id="level">
-                <option>★☆☆☆☆ Not recommend</option>
-                <option>★★☆☆☆ Could've been better</option>
-                <option>★★★☆☆ Average</option>
-                <option>★★★★☆ Decent</option>
-                <option>★★★★★ Fantastic</option>
-            </select>
-            <br>
-
+    <div style="margin: auto;">
+        <h1>Review for <span id="RestaurantName"></span></h1>
+        <!-- <h1>Restaurant Review</h1> -->
+        <br>
+        <form class="form-control align-items-center">
             <div class="form-group">
-                <label for="exampleFormControlSelect1">What do you think of this restaurant's price range? </label>
-                <select class="form-control" id="price">
-                    <option>$ Low-price</option>
-                    <option>$$ Acceptable price</option>
-                    <option>$$$ Above average price</option>
-                    <option>$$$$ Expensive</option>
+                <label for="exampleFormControlInput1">Add a title</label>
+                <input type="text" class="form-control" id="title" placeholder="Title">
+            </div><br>
+            <div class="form-group">
+                <label for="exampleFormControlSelect1">How would you rate your experience in this restaurant? </label>
+                <select class="form-control" id="level">
+                    <option>★☆☆☆☆ Not recommend</option>
+                    <option>★★☆☆☆ Could've been better</option>
+                    <option>★★★☆☆ Average</option>
+                    <option>★★★★☆ Decent</option>
+                    <option>★★★★★ Fantastic</option>
                 </select>
                 <br>
-
                 <div class="form-group">
-                    <label for="exampleFormControlTextarea1">What do you want to share about this place?</label>
-
-                    <textarea class="form-control" id="description" rows="7"></textarea>
+                    <label for="exampleFormControlSelect1">What do you think of this restaurant's price range? </label>
+                    <select class="form-control" id="price">
+                        <option>$ Low-price</option>
+                        <option>$$ Acceptable price</option>
+                        <option>$$$ Above average price</option>
+                        <option>$$$$ Expensive</option>
+                    </select>
+                    <br>
+                    <div class="form-group">
+                        <label for="exampleFormControlTextarea1">What do you want to share about this place?</label>
+                        <textarea class="form-control" id="description" rows="7"></textarea>
+                    </div>
+                    <br>
+                    <br>
+                    <div class="d-flex justify-content-end">
+                        <button type="button" class="btn btn-lg btn-dark pull-right"
+                            onclick="writeReview()">Submit</button>
+                    </div>
                 </div>
-                <br>
-
-
-                <br>
-                <div class="d-flex justify-content-end">
-                    <button type="button" class="btn btn-lg btn-dark pull-right" onclick="writeReview()">Submit</button>
-                </div>
-            </div>
-    </form>
+        </form>
+    </div>
 
     <!-- our own footer goes here-->
     <nav id="footerPlaceholder" class="mt-auto"></nav>
