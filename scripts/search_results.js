@@ -1,3 +1,4 @@
+
 function displaySearchResults() {
     testSearch = document.getElementById("mySearch").value;
     if (testSearch != null && testSearch != "") {
@@ -15,7 +16,8 @@ function displaySearchResults() {
             })
     }
 }
-displaySearchResults();
+
+displaySearchResults()
 
 function populate_restaurants(Docs) {
     let RestaurantCard = document.getElementById("RestaurantCard");
@@ -43,5 +45,12 @@ function populate_restaurants(Docs) {
 
     })
 }
+
+function move_user_main(){
+    window.location.href = "main.html"
+    displaySearchResults()
+}
+
+
 
 populate_restaurants();
