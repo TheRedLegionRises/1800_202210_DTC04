@@ -1,7 +1,7 @@
 // Store user preference as global variable
 
-var eater_type = []
-var cuisine_type = []
+var eater_type
+var cuisine_type
 
 // Grab user preferences and populate main page
 function user_preference() {
@@ -13,7 +13,7 @@ function user_preference() {
                   eater_type = doc.data().eater_type
                   cuisine_type = doc.data().cuisine_type
                   console.log("GET USER PREF " + cuisine_type + eater_type)
-                  if (eater_type.length > 0 || cuisine_type.length > 0) {
+                  if (Array.isArray(eater_type) && eater_type.length) {
                     populate_preference_restaurants()
                   } else {
                     populate_restaurants()
@@ -127,4 +127,3 @@ function writeRestaurants() {
 }
 
 user_preference()
-.then(console.log("OUTSIDE OF FUNCTIONS" + cuisine_type + eater_type))
