@@ -22,7 +22,7 @@ function displaySearchResults() {
 }
 
 
-function populate_restaurants(Docs) {
+function populate_restaurants_search(Docs) {
     let RestaurantCard = document.getElementById("RestaurantCard");
     let RestaurantCardGroup = document.getElementById("RestaurantCardGroup");
 
@@ -53,7 +53,3 @@ function move_user_main(){
     window.location.href = "main.html"
     displaySearchResults()
 }
-
-
-
-populate_restaurants();
