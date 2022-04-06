@@ -1,3 +1,24 @@
+// Store user preference as global variable
+
+let eater_type = []
+let cuisine_type = []
+
+// Grab user cuisine and eater type
+
+function get_user_preference() {
+  firebase.auth().onAuthStateChanged(user => {
+      if (user) {
+          currentUser = db.collection("users").doc(user.uid) //global
+          // console.log(currentUser)
+          currentUser.get()
+              .then((doc) => {
+                  eater_type = doc.data().eater_type
+                  cuisine_type = doc.data().cuisine_type
+              })
+      }
+  })
+}
+
 function sayHello() {
   firebase.auth().onAuthStateChanged(function (user) {
     if (user) {
@@ -62,7 +83,6 @@ function insertName() {
     }
   });
 }
-insertName();
 
 function writeRestaurants() {
   //define a variable for the collection you want to create in Firestore to populate data
@@ -167,8 +187,50 @@ function populate_restaurants() {
     });
 }
 
-populate_restaurants();
 
 function setRestuarantData(id) {
   localStorage.setItem("RestaurantID", id);
 }
+
+
+// populate restaurant cards with preference
+
+function populate_preference_restaurants() {
+  $("#RestaurantCardGroup").empty();
+
+  let RestaurantCard = document.getElementById("RestaurantCard");
+  let RestaurantCardGroup = document.getElementById("RestaurantCardGroup");
+
+  db.collection("restaurant")
+      .get()
+      .then((AllRestaurants) => {
+          AllRestaurants.forEach((doc) => {
+              restaurant_eater_type = doc.data().eater_type
+              restaurant_cuisine_type = doc.data().cuisine_type
+              if (eater_type.some(eater => restaurant_eater_type.includes(eater)) && cuisine_type.some(cuisine => restaurant_cuisine_type.includes(cuisine))) {
+                  var RestaurantName = doc.data().name;
+                  var RestaurantID = doc.data().id;
+                  var RestaurantPrice = doc.data().price;
+                  var RestaurantDescription = doc.data().description;
+
+                  let newRestaurantCard = RestaurantCard.content.cloneNode(true);
+                  newRestaurantCard.querySelector(".card-title").innerHTML =
+                      RestaurantName;
+                  newRestaurantCard.querySelector(".price").innerHTML = RestaurantPrice;
+                  newRestaurantCard.querySelector(".card-text").innerHTML =
+                      RestaurantDescription;
+                  newRestaurantCard.querySelector("a").onclick = () =>
+                      setRestuarantData(RestaurantID);
+
+                  newRestaurantCard.querySelector(
+                      "img"
+                  ).src = `./images/${RestaurantID}.jpg`;
+
+                  RestaurantCardGroup.appendChild(newRestaurantCard);
+              }
+          });
+      });
+}
+
+get_user_preference()
+populate_restaurants()

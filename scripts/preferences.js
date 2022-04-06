@@ -1,5 +1,8 @@
 eater_type_array = ['omnivoreInput', 'veganInput', 'vegetarianInput', 'lowcarbInput', 'nosugarInput', 'pescetarianInput']
-cuisine_type_array = ['French', 'Italian', 'Greek', 'Spanish', 'Mediterranean', 'Lebanese', 'Moroccan', 'Turkish', 'American', 'Chinese', 'Indian', 'Japanese', 'Korean', 'Thai']
+cuisine_type_array = ['French', 'Italian', 'Greek', 'Spanish', 'Mediterranean', 'Lebanese', 'Moroccan', 'Turkish', 'American', 'Chinese', 'Indian', 'Japanese', 'Korean', 'Thai', 'Vietnamese']
+
+let eater_type = null
+let cuisine_type = null
 var currentUser
 
 function preCheckBoxes() {
@@ -9,7 +12,7 @@ function preCheckBoxes() {
             // console.log(currentUser)
             currentUser.get()
                 .then((doc) => {
-                    eater_type =  doc.data().eater_type
+                    eater_type = doc.data().eater_type
                     cuisine_type = doc.data().cuisine_type
 
                     for (i = 0; i < eater_type_array.length; i++) {
@@ -76,32 +79,18 @@ function updateUserPreference() {
 
 function populateWithPreference() {
     $("#RestaurantCardGroup").empty();
-
-    let RestaurantCard = document.getElementById("RestaurantCard");
-    let RestaurantCardGroup = document.getElementById("RestaurantCardGroup");
-
     db.collection("restaurant")
-    .orderBy("price")
-    .limit(10)
-    .get()
+        .limit(10)
+        .get()
         .then(AllRestaurants => {
             AllRestaurants.forEach(doc => {
-                restaurant_eater_type =  doc.data().eater_type
+                restaurant_eater_type = doc.data().eater_type
                 restaurant_cuisine_type = doc.data().cuisine_type
-                
-                var RestaurantName = doc.data().name
-                var RestaurantID = doc.data().id
-                var RestaurantPrice = doc.data().price
-                var RestaurantDescription = doc.data().description
-                
-
-                let newRestaurantCard = RestaurantCard.content.cloneNode(true)
-                newRestaurantCard.querySelector('.card-title').innerHTML = RestaurantName
-                newRestaurantCard.querySelector('.price').innerHTML = RestaurantPrice
-                newRestaurantCard.querySelector('.card-text').innerHTML = RestaurantDescription
-                newRestaurantCard.querySelector("img").src = `./images/${RestaurantID}.jpg`
-                RestaurantCardGroup.appendChild(newRestaurantCard)
-
+                if (eater_type.some(eater => restaurant_eater_type.includes(eater)) && cuisine_type.some(cuisine => restaurant_cuisine_type.includes(cusine))) {
+                    console.log("1")
+                }
+                // console.log(restaurant_cuisine_type)
+                // console.log(restaurant_eater_type)
             })
         })
 }
