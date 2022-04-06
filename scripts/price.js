@@ -35,6 +35,15 @@ function sort_by_price_low_to_high_restaurant() {
                 newRestaurantCard.querySelector('.card-title').innerHTML = RestaurantName
                 newRestaurantCard.querySelector('.price').innerHTML = RestaurantPrice
                 newRestaurantCard.querySelector('.card-text').innerHTML = RestaurantDescription
+
+                // hides description first and sets ID of the description box to restaurantID
+                newRestaurantCard.querySelector(".card-text").style.display = "none";
+                newRestaurantCard.querySelector(".card-text").setAttribute("id", `${RestaurantID}`);
+                            
+                // shows/hides the description
+                newRestaurantCard.querySelector(".show").onclick = () => showDescription(RestaurantID);
+
+
                 newRestaurantCard.querySelector("img").src = `./images/${RestaurantID}.jpg`
                 RestaurantCardGroup.appendChild(newRestaurantCard)
 
@@ -87,4 +96,3 @@ function showDescription(id){
       x.style.display = "none";
     }
   }
-  
