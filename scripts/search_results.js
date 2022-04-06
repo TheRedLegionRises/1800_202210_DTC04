@@ -1,34 +1,40 @@
-
-function displaySearchResults() {
+function gotoSearch(){
     testSearch = document.getElementById("mySearch").value;
-    console.log(testSearch);
-    let result = testSearch.toLowerCase();
-    if (result != null && result != "") {
-        db.collection("restaurant").where("name", "==", testSearchgit)
+    window.location.href="search_results.html?search="+testSearch;
+}
 
-        .get() 
-            .then(result => { 
-                size = result.size;
-                console.log(size);
+
+function displayResults() {
+    let params = new URL(window.location.href);
+    let testSearch = params.searchParams.get("search");               //parse "id"
+    document.getElementById("search-goes-here").innerHTML = testSearch;
+
+    if (testSearch != null && testSearch != "") {
+        db.collection("restaurant").where("name", "==", testSearch)
+            .get()
+            .then(searchResult => {
+                size = searchResult.size;
                 console.log("search");
-                populate_restaurants(result);
+                populate_restaurants_search(searchResult);
             })
     } else {
-        db.collection("restaurant").get() 
-            .then(allrestaurant => {
-                populate_restaurants(allrestaurant);
+        db.collection("restaurant").get()
+            .then(allHikes => {
+                populate_restaurants_search(allHikes);
             })
     }
 }
 
+displayResults();
 
-function populate_restaurants(Docs) {
-    let RestaurantCard = document.getElementById("RestaurantCard");
-    let RestaurantCardGroup = document.getElementById("RestaurantCardGroup");
+
+function populate_restaurants_search(Docs) {
+    let RestaurantCardSearch = document.getElementById("RestaurantCardSearch");
+    let Restaurant_Seach_CardGroup = document.getElementById("Restaurant_Seach_CardGroup");
 
     //console.log(Docs.size);
-    while (RestaurantCardGroup.firstChild) {
-        RestaurantCardGroup.removeChild(RestaurantCardGroup.firstChild)
+    while (Restaurant_Seach_CardGroup.firstChild) {
+        Restaurant_Seach_CardGroup.removeChild(Restaurant_Seach_CardGroup.firstChild)
     }
 
     Docs.forEach(doc => { //iterate through all documents in the Hikes collection
@@ -37,23 +43,19 @@ function populate_restaurants(Docs) {
         var RestaurantPrice = doc.data().price;
         var RestaurantDescription = doc.data().description;
 
-        let newRestaurantCard = RestaurantCard.content.cloneNode(true);
+        let newRestaurantCard = RestaurantCardSearch.content.cloneNode(true);
         newRestaurantCard.querySelector(".card-title").innerHTML = RestaurantName;
         newRestaurantCard.querySelector(".price").innerHTML = RestaurantPrice;
         newRestaurantCard.querySelector(".card-text").innerHTML = RestaurantDescription;
         newRestaurantCard.querySelector("a").onclick = () => setRestuarantData(RestaurantID);
 
         newRestaurantCard.querySelector("img").src = `./images/${RestaurantID}.jpg`;
-        RestaurantCardGroup.appendChild(newRestaurantCard);
+        Restaurant_Seach_CardGroup.appendChild(newRestaurantCard);
 
     })
 }
 
-function move_user_main(){
-    window.location.href = "main.html"
-    displaySearchResults()
-}
 
 
 
-populate_restaurants();
+populate_restaurants_search();
