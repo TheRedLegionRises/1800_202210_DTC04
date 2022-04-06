@@ -2,29 +2,35 @@ function write_filters() {
     var filtersRef = db.collection("Filters");
 
     filtersRef.add({
-        code: "SUSHI",
-        filterName: "Sushi",
+        code: "KOREN",
+        filterName: "Korean",
         cuisineType: "Asian",
-        selected: 0,
+        searchName: "korean",
 
     });
 
     filtersRef.add({
-        code: "BURGR",
-        filterName: "Hamburgers",
-        cuisineType: "Western",
-        selected: 0,
+        code: "ITALIAN",
+        filterName: "Italian",
+        cuisineType: "Italian",
+        searchName: "Italian",
 
     });
 
     filtersRef.add({
-        code: "BBT",
-        filterName: "Bubble Tea",
-        cuisineType: "Asian",
-        selected: 0,
+        code: "VEGAN",
+        filterName: "Vegan",
+        cuisineType: "All",
+        searchName: "vegan",
 
     });
 
+    filtersRef.add({
+        code: "INDIAN",
+        filterName: "Indian",
+        cuisineType: "Asian",
+        searchName: "indian",
+    })
 
 }
 
