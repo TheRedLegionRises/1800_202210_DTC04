@@ -135,14 +135,21 @@ function writeRestaurants() {
   });
   restaurantRef.add({
     id: "r_07",
-    name: "Burger King",
+    name: "Vegan Cave Cafe",
     city: "Vancouver",
     province: "BC",
-    review: "3/5",
-    price: "$",
+    review: "4.7/5",
+    price: "$$",
+    eater_type: ["Omnivore", "Vegan", "Vegetarian", "Low Carb"],
+    cuisine_type: ["Italian"],
+    filter: "ITALIAN",
+    search: "italian",
+    coordinates: [49.28537995112188, -123.12616055942722],
+    url: "https://vegancavevancouver.com/",
     description:
-      "Burger King is an American multinational chain of hamburger fast food restaurants founded in 1953.",
+      "Funky cafe serving vegan pizza, salads, wraps & desserts from a counter for casual dining or to-go.",
   });
 }
 
+// writeRestaurants();
 user_preference();
