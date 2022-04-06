@@ -44,6 +44,10 @@ function populate_restaurants() {
           RestaurantDescription;
         newRestaurantCard.querySelector("a").onclick = () =>
           setRestuarantData(RestaurantID);
+        
+        // newRestaurantCard.querySelector(".show").onclick = () => showDescription(RestaurantDescription);
+
+        // newRestaurantCard.querySelector(".show").onclick = () => myFunction();
 
         newRestaurantCard.querySelector(
           "img"
