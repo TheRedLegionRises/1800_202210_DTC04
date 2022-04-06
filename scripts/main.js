@@ -5,22 +5,21 @@ var cuisine_type;
 
 // Grab user preferences and populate main page
 function user_preference() {
-  firebase.auth().onAuthStateChanged(user => {
-      if (user) {
-          currentUser = db.collection("users").doc(user.uid)
-          currentUser.get()
-              .then((doc) => {
-                  eater_type = doc.data().eater_type
-                  cuisine_type = doc.data().cuisine_type
-                  console.log("GET USER PREF " + cuisine_type + eater_type)
-                  if (Array.isArray(eater_type) && eater_type.length) {
-                    populate_preference_restaurants()
-                  } else {
-                    populate_restaurants()
-                  }
-              })
-      }
-  })
+  firebase.auth().onAuthStateChanged((user) => {
+    if (user) {
+      currentUser = db.collection("users").doc(user.uid);
+      currentUser.get().then((doc) => {
+        eater_type = doc.data().eater_type;
+        cuisine_type = doc.data().cuisine_type;
+        console.log("GET USER PREF " + cuisine_type + eater_type);
+        if (Array.isArray(eater_type) && eater_type.length) {
+          populate_preference_restaurants();
+        } else {
+          populate_restaurants();
+        }
+      });
+    }
+  });
 }
 
 // populate main.html with all restaurants
@@ -113,6 +112,7 @@ function writeRestaurants() {
     cuisine_type: ["Korean"],
     filter: "KOREAN",
     search: "korean",
+    coordinates: [49.285124251738765, -123.12587210175681],
     url: "https://kosoo.ca/",
     description:
       "Streamlined Korean establishment serving fried chicken, pork specialties & BBQ dishes, plus soups.",
@@ -123,9 +123,15 @@ function writeRestaurants() {
     city: "Vancouver",
     province: "BC",
     review: "4.5/5",
-    price: "$$",
+    price: "$$$",
+    eater_type: ["Omnivore"],
+    cuisine_type: ["Italian"],
+    filter: "ITALIAN",
+    search: "italian",
+    coordinates: [49.28537995112188, -123.12616055942722],
+    url: "https://cincin.net/",
     description:
-      "A&W Restaurants is an American chain of fast-food restaurants distinguished by its burgers, draft root beer and root beer floats.",
+      "Longtime eatery offering upscale Italian dishes, handmade pastas & choice wines in a warm room.",
   });
   restaurantRef.add({
     id: "r_07",
@@ -139,10 +145,4 @@ function writeRestaurants() {
   });
 }
 
-<<<<<<< HEAD
-user_preference().then(
-  console.log("OUTSIDE OF FUNCTIONS" + cuisine_type + eater_type)
-);
-=======
-user_preference()
->>>>>>> b7a0eed784c1464b562377859e3d0b17946ef5e1
+user_preference();
