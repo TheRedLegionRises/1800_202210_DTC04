@@ -1,7 +1,7 @@
 // Store user preference as global variable
 
-let eater_type = []
-let cuisine_type = []
+var eater_type
+var cuisine_type
 
 // Grab user cuisine and eater type
 
@@ -14,6 +14,12 @@ function get_user_preference() {
               .then((doc) => {
                   eater_type = doc.data().eater_type
                   cuisine_type = doc.data().cuisine_type
+                  console.log("GET USER PREF " + cuisine_type + eater_type)
+                  if (eater_type.length > 0 || cuisine_type.length > 0) {
+                    populate_preference_restaurants()
+                  } else {
+                    populate_restaurants()
+                  }
               })
       }
   })
@@ -185,6 +191,7 @@ function populate_restaurants() {
         RestaurantCardGroup.appendChild(newRestaurantCard);
       });
     });
+    console.log("populate_restaurants() ran successfully")
 }
 
 
@@ -196,11 +203,8 @@ function setRestuarantData(id) {
 // populate restaurant cards with preference
 
 function populate_preference_restaurants() {
-  $("#RestaurantCardGroup").empty();
-
   let RestaurantCard = document.getElementById("RestaurantCard");
   let RestaurantCardGroup = document.getElementById("RestaurantCardGroup");
-
   db.collection("restaurant")
       .get()
       .then((AllRestaurants) => {
@@ -212,25 +216,18 @@ function populate_preference_restaurants() {
                   var RestaurantID = doc.data().id;
                   var RestaurantPrice = doc.data().price;
                   var RestaurantDescription = doc.data().description;
-
                   let newRestaurantCard = RestaurantCard.content.cloneNode(true);
-                  newRestaurantCard.querySelector(".card-title").innerHTML =
-                      RestaurantName;
+                  newRestaurantCard.querySelector(".card-title").innerHTML = RestaurantName;
                   newRestaurantCard.querySelector(".price").innerHTML = RestaurantPrice;
-                  newRestaurantCard.querySelector(".card-text").innerHTML =
-                      RestaurantDescription;
-                  newRestaurantCard.querySelector("a").onclick = () =>
-                      setRestuarantData(RestaurantID);
-
-                  newRestaurantCard.querySelector(
-                      "img"
-                  ).src = `./images/${RestaurantID}.jpg`;
-
+                  newRestaurantCard.querySelector(".card-text").innerHTML = RestaurantDescription;
+                  newRestaurantCard.querySelector("a").onclick = () =>setRestuarantData(RestaurantID);
+                  newRestaurantCard.querySelector("img").src = `./images/${RestaurantID}.jpg`;
                   RestaurantCardGroup.appendChild(newRestaurantCard);
               }
           });
       });
+      console.log("populate_preference_restaurants() ran successfully")
 }
 
 get_user_preference()
-populate_restaurants()
+.then(console.log("OUTSIDE OF FUNCTIONS" + cuisine_type + eater_type))
