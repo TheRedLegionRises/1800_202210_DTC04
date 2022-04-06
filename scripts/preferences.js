@@ -68,6 +68,7 @@ function updateUserPreference() {
     }
     // document.getElementById('eaterTypeInfoFields').disabled = true
     // document.getElementById('cuisineInfoFields').disabled = true
+    $("#preference_alert").show()
 }
 
 
@@ -89,5 +90,5 @@ function populateWithPreference() {
         })
 }
 
-
+$("#preference_alert").hide()
 preCheckBoxes()

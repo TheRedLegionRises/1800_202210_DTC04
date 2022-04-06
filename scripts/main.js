@@ -124,22 +124,22 @@ function writeRestaurants() {
   //define a variable for the collection you want to create in Firestore to populate data
   var restaurantRef = db.collection("restaurant");
 
-  restaurantRef.add({
-    id: "r_05",
-    name: "Kosoo Korean Restaurant Chicken & BBQ",
-    city: "Vancouver",
-    province: "BC",
-    review: "4.2/5",
-    price: "$$",
-    eater_type: ["Omnivore"],
-    cuisine_type: ["Korean"],
-    filter: "KOREAN",
-    search: "korean",
-    coordinates: [49.285124251738765, -123.12587210175681],
-    url: "https://kosoo.ca/",
-    description:
-      "Streamlined Korean establishment serving fried chicken, pork specialties & BBQ dishes, plus soups.",
-  });
+  // restaurantRef.add({
+  //   id: "r_05",
+  //   name: "Kosoo Korean Restaurant Chicken & BBQ",
+  //   city: "Vancouver",
+  //   province: "BC",
+  //   review: "4.2/5",
+  //   price: "$$",
+  //   eater_type: ["Omnivore"],
+  //   cuisine_type: ["Korean"],
+  //   filter: "KOREAN",
+  //   search: "korean",
+  //   coordinates: [49.285124251738765, -123.12587210175681],
+  //   url: "https://kosoo.ca/",
+  //   description:
+  //     "Streamlined Korean establishment serving fried chicken, pork specialties & BBQ dishes, plus soups.",
+  // });
   restaurantRef.add({
     id: "r_06",
     name: "CinCin Ristorante + Bar",
@@ -156,16 +156,23 @@ function writeRestaurants() {
     description:
       "Longtime eatery offering upscale Italian dishes, handmade pastas & choice wines in a warm room.",
   });
-  restaurantRef.add({
-    id: "r_07",
-    name: "Burger King",
-    city: "Vancouver",
-    province: "BC",
-    review: "3/5",
-    price: "$",
-    description:
-      "Burger King is an American multinational chain of hamburger fast food restaurants founded in 1953.",
-  });
+  // restaurantRef.add({
+  //   id: "r_07",
+  //   name: "Vegan Cave Cafe",
+  //   city: "Vancouver",
+  //   province: "BC",
+  //   review: "4.7/5",
+  //   price: "$$",
+  //   eater_type: ["Omnivore", "Vegan", "Vegetarian", "Low Carb"],
+  //   cuisine_type: ["Italian"],
+  //   filter: "ITALIAN",
+  //   search: "italian",
+  //   coordinates: [49.28537995112188, -123.12616055942722],
+  //   url: "https://vegancavevancouver.com/",
+  //   description:
+  //     "Funky cafe serving vegan pizza, salads, wraps & desserts from a counter for casual dining or to-go.",
+  // });
 }
 
+// writeRestaurants();
 user_preference();
