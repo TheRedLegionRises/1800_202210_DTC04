@@ -139,10 +139,4 @@ function writeRestaurants() {
   });
 }
 
-<<<<<<< HEAD
-user_preference().then(
-  console.log("OUTSIDE OF FUNCTIONS" + cuisine_type + eater_type)
-);
-=======
 user_preference()
->>>>>>> b7a0eed784c1464b562377859e3d0b17946ef5e1
