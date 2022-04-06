@@ -38,12 +38,6 @@ function preCheckBoxes() {
     })
 }
 
-
-// function editUserPreference() {
-//     document.getElementById('eaterTypeInfoFields').disabled = false
-//     document.getElementById('cuisineInfoFields').disabled = false
-// }
-
 function updateUserPreference() {
     for (let i = 0; i < eater_type_array.length; i++) {
         value = document.getElementById(eater_type_array[i]).value

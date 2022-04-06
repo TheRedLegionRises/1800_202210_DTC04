@@ -58,43 +58,13 @@
     </div>
   </div>
 
-
-
-  <!-- FIGURE OUT WHY THIS ISNT WORKING LATER -->
-  <!--   <template id="restuarantCardTemplate">
-    <div class="card">
-      <li>
-          <img class="card__image" />
-          <div class="card__overlay">
-            <div class="card__header">
-              <svg class="card__arc" xmlns="http://www.w3.org/2000/svg">
-                <path />
-              </svg>
-              <div class="card__header-text">
-                <h3 class="card__title">PlaceHolder for title</h3>
-                <span class="card__status">PlaceHolder for price range</span>
-                <br>
-                <span class="card__star">PlaceHolder for how many stars</span>
-              </div>
-            </div>
-            <p class="card__description">Place Holder for description</p>
-            <form action="/review.html" class="card__review__button">
-              <input type="submit" value="Review" />
-            </form>
-          </div>
-          </a>
-      </li>
-    </div>
-  </template> -->
-
-
   <template id="RestaurantCard">
     <div class="card_for_main">
       <img class="card-img-top">
       <div class="card-body">
-        <h5 class="card-title">placeholder</h5>
+        <h5 class="card-title" id="title">placeholder</h5>
         <p class="price">price placeholder</p>
-        <p class="card-text"> Add descriptions for restuarants in firebase
+        <p class="card-text" id="text"> Add descriptions for restuarants in firebase
         </p>
         <a href="review.html" class="link-dark">Review</a>
       </div>
@@ -118,7 +88,6 @@
             type="button">Sort by price (high to low)</button></li>
             
         <li><button class="dropdown-item" type="button" onclick="location.href='./filter_by_foods.html'">Filter</button></li>
-        <!-- <li><button class="dropdown-item" type="button">Something else here</button></li> -->
       </ul>
     </div>
     <br>

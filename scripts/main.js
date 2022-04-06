@@ -28,10 +28,6 @@ const dataFilter = (value) => {
   });
 };
 
-// new mdb.Autocomplete(basicAutocomplete, {
-//     filter: dataFilter
-// });
-
 const locationAutocomplete = document.querySelector("#location");
 const dataL = ["Madrid", "Rome", "Lisbon", "Paris", "London"];
 const dataFilterL = (value) => {
@@ -40,15 +36,8 @@ const dataFilterL = (value) => {
   });
 };
 
-// new mdb.Autocomplete(locationAutocomplete, {
-//     filter: dataFilterL
-// });
-// SEARCH BAR
-
 //GRAB USER'S NAME
 function insertName() {
-  // console.log("insertName() got called")
-  // to check if user is logged in
   firebase.auth().onAuthStateChanged((user) => {
     if (user) {
       console.log(user.uid); // get uid of user who is logged in
@@ -99,41 +88,6 @@ function writeRestaurants() {
       "Burger King is an American multinational chain of hamburger fast food restaurants founded in 1953.",
   });
 }
-
-/* MAKE IT WORK LATER */
-/* function populateCardsDynamically() {
-    let restuarantCardTemplate = document.getElementById("restuarantCardTemplate");
-    let restaurants_card_group = document.getElementById("restaurants_card_group");
-
-    db.collection("restuarant")
-    .orderBy("name") //NEW LINE;  what do you want to sort by?
-    .limit(10) //NEW LINE:  how many do you want to get?
-    .get()
-    .then((allrestuarant) => {
-      allrestuarant.forEach((doc) => {
-        var restaurantName = doc.data().name; //gets the name field
-        var restuarantID = doc.data().id;     //gets the unique ID field
-        var restaurantPrice = doc.data().price //gets the unique Price field
-        var restaurantRating = doc.data().review  //gets the unique Review field
-        var restaurantDescription = doc.data().description  //gets the unique Description field
-        let testrestuarantCard = restuarantCardTemplate.content.cloneNode(true);
-        
-        testrestuarantCard.querySelector(".card__title").innerHTML = restaurantName;
-        testrestuarantCard.querySelector(".card__status").innerHTML = restaurantPrice;
-        testrestuarantCard.querySelector(".card__star").innerHTML = restaurantRating;
-        //testrestuarantCard.querySelector(".card__description").innerHTML = restaurantDescription;
-        
-
-        // testrestuarantCard.querySelector("card__title").innerHTML = hikeLength;
-        testrestuarantCard.querySelector("img").src = `./images/${restuarantID}.jpg`;
-
-        
-        restaurants_card_group.appendChild(testrestuarantCard);
-      });
-    });
-}
- */
-
 // USE LATER
 
 function populate_restaurants() {
@@ -157,6 +111,10 @@ function populate_restaurants() {
           RestaurantDescription;
         newRestaurantCard.querySelector("a").onclick = () =>
           setRestuarantData(RestaurantID);
+        
+        // newRestaurantCard.querySelector(".show").onclick = () => showDescription(RestaurantDescription);
+
+        // newRestaurantCard.querySelector(".show").onclick = () => myFunction();
 
         newRestaurantCard.querySelector(
           "img"
@@ -172,3 +130,39 @@ populate_restaurants();
 function setRestuarantData(id) {
   localStorage.setItem("RestaurantID", id);
 }
+
+function showDescription(restaurantDescription){
+  console.log("hi");
+  console.log(restaurantDescription);
+
+  document.getElementById("text").innerHTML = restaurantDescription
+
+  // let RestaurantCard = document.getElementById("RestaurantCard");
+
+  // let newRestaurantCard = RestaurantCard.content.cloneNode(true);
+
+
+  // newRestaurantCard.querySelector(".card-text").innerHTML =
+  // restaurantDescription;
+
+
+  // restaurantText = document.getElementByID
+}
+
+function myFunction() {
+  var x = document.getElementById("text");
+  if (x.style.display === "none") {
+    x.style.display = "block";
+  } else {
+    x.style.display = "none";
+  }
+}
+
+function setup(){
+  console.log("Setup")
+  // $("body").on("click", ".show", showDescription);
+  $(".card-text").hide();
+}
+
+
+$(document).ready(setup);

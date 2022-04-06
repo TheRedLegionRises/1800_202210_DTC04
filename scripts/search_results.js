@@ -4,7 +4,7 @@ function displaySearchResults() {
     console.log(testSearch);
     let result = testSearch.toLowerCase();
     if (result != null && result != "") {
-        db.collection("restaurant").where("name", "==", testSearch)
+        db.collection("restaurant").where("name", "==", testSearchgit)
 
         .get() 
             .then(result => { 
