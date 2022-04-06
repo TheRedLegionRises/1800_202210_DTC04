@@ -1,7 +1,7 @@
 // Store user preference as global variable
 
-var eater_type
-var cuisine_type
+var eater_type = []
+var cuisine_type = []
 
 // Grab user preferences and populate main page
 function user_preference() {
@@ -23,6 +23,7 @@ function user_preference() {
   })
 }
 
+// populate main.html with all restaurants
 function populate_restaurants() {
   let RestaurantCard = document.getElementById("RestaurantCard");
   let RestaurantCardGroup = document.getElementById("RestaurantCardGroup");
@@ -62,7 +63,6 @@ function setRestuarantData(id) {
 
 
 // populate restaurant cards with preference
-
 function populate_preference_restaurants() {
   let RestaurantCard = document.getElementById("RestaurantCard");
   let RestaurantCardGroup = document.getElementById("RestaurantCardGroup");
