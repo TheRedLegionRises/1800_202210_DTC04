@@ -40,14 +40,19 @@ function populate_restaurants() {
         newRestaurantCard.querySelector(".card-title").innerHTML =
           RestaurantName;
         newRestaurantCard.querySelector(".price").innerHTML = RestaurantPrice;
+
         newRestaurantCard.querySelector(".card-text").innerHTML =
           RestaurantDescription;
+        
+          // hides description first and sets ID of the description box to restaurantID
+        newRestaurantCard.querySelector(".card-text").style.display = "none";
+        newRestaurantCard.querySelector(".card-text").setAttribute("id", `${RestaurantID}`);
+
         newRestaurantCard.querySelector("a").onclick = () =>
           setRestuarantData(RestaurantID);
-
-        // newRestaurantCard.querySelector(".show").onclick = () => showDescription(RestaurantDescription);
-
-        // newRestaurantCard.querySelector(".show").onclick = () => myFunction();
+        
+        //show or hides the description
+        newRestaurantCard.querySelector(".show").onclick = () => showDescription(RestaurantID);
 
         newRestaurantCard.querySelector(
           "img"
@@ -57,10 +62,6 @@ function populate_restaurants() {
       });
     });
   console.log("populate_restaurants() ran successfully");
-}
-
-function setRestuarantData(id) {
-  localStorage.setItem("RestaurantID", id);
 }
 
 // populate restaurant cards with preference
@@ -89,16 +90,34 @@ function populate_preference_restaurants() {
           newRestaurantCard.querySelector(".price").innerHTML = RestaurantPrice;
           newRestaurantCard.querySelector(".card-text").innerHTML =
             RestaurantDescription;
+
+          // hides description first and sets ID of the description box to restaurantID
+          newRestaurantCard.querySelector(".card-text").style.display = "none";
+          newRestaurantCard.querySelector(".card-text").setAttribute("id", `${RestaurantID}`);
+          
+          // shows/hides the description
+          newRestaurantCard.querySelector(".show").onclick = () => showDescription(RestaurantID);
+
           newRestaurantCard.querySelector("a").onclick = () =>
             setRestuarantData(RestaurantID);
           newRestaurantCard.querySelector(
             "img"
           ).src = `./images/${RestaurantID}.jpg`;
+
           RestaurantCardGroup.appendChild(newRestaurantCard);
         }
       });
     });
   console.log("populate_preference_restaurants() ran successfully");
+}
+
+function showDescription(id){
+  var x = document.getElementById(`${id}`);
+  if (x.style.display === "none") {
+    x.style.display = "block";
+  } else {
+    x.style.display = "none";
+  }
 }
 
 function writeRestaurants() {
