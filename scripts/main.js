@@ -5,23 +5,25 @@ var cuisine_type;
 
 // Grab user preferences and populate main page
 function user_preference() {
-  firebase.auth().onAuthStateChanged((user) => {
-    if (user) {
-      currentUser = db.collection("users").doc(user.uid);
-      currentUser.get().then((doc) => {
-        eater_type = doc.data().eater_type;
-        cuisine_type = doc.data().cuisine_type;
-        console.log("GET USER PREF " + cuisine_type + eater_type);
-        if (eater_type.length > 0 || cuisine_type.length > 0) {
-          populate_preference_restaurants();
-        } else {
-          populate_restaurants();
-        }
-      });
-    }
-  });
+  firebase.auth().onAuthStateChanged(user => {
+      if (user) {
+          currentUser = db.collection("users").doc(user.uid)
+          currentUser.get()
+              .then((doc) => {
+                  eater_type = doc.data().eater_type
+                  cuisine_type = doc.data().cuisine_type
+                  console.log("GET USER PREF " + cuisine_type + eater_type)
+                  if (Array.isArray(eater_type) && eater_type.length) {
+                    populate_preference_restaurants()
+                  } else {
+                    populate_restaurants()
+                  }
+              })
+      }
+  })
 }
 
+// populate main.html with all restaurants
 function populate_restaurants() {
   let RestaurantCard = document.getElementById("RestaurantCard");
   let RestaurantCardGroup = document.getElementById("RestaurantCardGroup");
@@ -59,7 +61,6 @@ function setRestuarantData(id) {
 }
 
 // populate restaurant cards with preference
-
 function populate_preference_restaurants() {
   let RestaurantCard = document.getElementById("RestaurantCard");
   let RestaurantCardGroup = document.getElementById("RestaurantCardGroup");
@@ -138,6 +139,10 @@ function writeRestaurants() {
   });
 }
 
+<<<<<<< HEAD
 user_preference().then(
   console.log("OUTSIDE OF FUNCTIONS" + cuisine_type + eater_type)
 );
+=======
+user_preference()
+>>>>>>> b7a0eed784c1464b562377859e3d0b17946ef5e1
