@@ -1,5 +1,4 @@
-// CHECK IF USER IS LOGGED IN THEN FUN FUNCTIONS
-
+// CHECK IF USER IS LOGGED IN THEN RUN FUNCTIONS
 var currentUser;
 firebase.auth().onAuthStateChanged(user => {
     if (user) {
@@ -13,6 +12,7 @@ firebase.auth().onAuthStateChanged(user => {
 });
 
 
+// FUNCTION TO SORT CARDS FROM LOW TO HIGH
 function sort_by_price_low_to_high_restaurant() {
 
     $("#RestaurantCardGroup").empty();
@@ -52,6 +52,7 @@ function sort_by_price_low_to_high_restaurant() {
 }
 
 
+// FUNCTION TO SORT CARDS FROM HIGH TO LOW
 function sort_by_price_high_to_low_restaurant() {
 
     $("#RestaurantCardGroup").empty();
@@ -88,6 +89,8 @@ function sort_by_price_high_to_low_restaurant() {
         })
 }
 
+
+// FUNCTION TO SHOW CARD DESCRIPTION
 function showDescription(id){
     var x = document.getElementById(`${id}`);
     if (x.style.display === "none") {
