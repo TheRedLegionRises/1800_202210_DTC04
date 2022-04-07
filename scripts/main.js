@@ -50,7 +50,7 @@ function populate_restaurants() {
           .querySelector(".card-text")
           .setAttribute("id", `${RestaurantID}`);
 
-        newRestaurantCard.querySelector("a").onclick = () =>
+        newRestaurantCard.querySelector("#review").onclick = () =>
           setRestuarantData(RestaurantID);
 
         //show or hides the description
@@ -104,8 +104,8 @@ function populate_preference_restaurants() {
           newRestaurantCard.querySelector(".show").onclick = () =>
             showDescription(RestaurantID);
 
-          // newRestaurantCard.querySelector("a").onclick = () =>
-          //   setRestuarantData(RestaurantID);
+          newRestaurantCard.querySelector("#review").onclick = () =>
+            setRestuarantData(RestaurantID);
           newRestaurantCard.querySelector(
             "img"
           ).src = `./images/${RestaurantID}.jpg`;
