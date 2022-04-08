@@ -1,3 +1,4 @@
+// All possible values for eater and cuisine type form
 eater_type_array = ['omnivoreInput', 'veganInput', 'vegetarianInput', 'lowcarbInput', 'nosugarInput', 'pescetarianInput']
 cuisine_type_array = ['French', 'Italian', 'Greek', 'Spanish', 'Mediterranean', 'Lebanese', 'Moroccan', 'Turkish', 'American', 'Chinese', 'Indian', 'Japanese', 'Korean', 'Thai', 'Vietnamese']
 
@@ -5,6 +6,8 @@ let eater_type = null
 let cuisine_type = null
 var currentUser
 
+// Grab cuisine and eater type array
+// Set checkboxes to true if value is in user's preference
 function preCheckBoxes() {
     firebase.auth().onAuthStateChanged(user => {
         if (user) {
@@ -41,6 +44,8 @@ function preCheckBoxes() {
     })
 }
 
+
+// Update user preference arrays from form
 function updateUserPreference() {
     for (let i = 0; i < eater_type_array.length; i++) {
         value = document.getElementById(eater_type_array[i]).value
@@ -71,24 +76,8 @@ function updateUserPreference() {
     $("#preference_alert").show()
 }
 
-
-function populateWithPreference() {
-    $("#RestaurantCardGroup").empty();
-    db.collection("restaurant")
-        .limit(10)
-        .get()
-        .then(AllRestaurants => {
-            AllRestaurants.forEach(doc => {
-                restaurant_eater_type = doc.data().eater_type
-                restaurant_cuisine_type = doc.data().cuisine_type
-                if (eater_type.some(eater => restaurant_eater_type.includes(eater)) && cuisine_type.some(cuisine => restaurant_cuisine_type.includes(cusine))) {
-                    console.log("1")
-                }
-                // console.log(restaurant_cuisine_type)
-                // console.log(restaurant_eater_type)
-            })
-        })
-}
-
+// Hide dialog that that yields recourse
 $("#preference_alert").hide()
+
+// Run preCheckBoxes functions to populate form
 preCheckBoxes()

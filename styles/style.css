@@ -65,24 +65,18 @@ body {
   margin-bottom: 6%; /* Added */
 }
 
-.card {
-  position: relative;
-  display: block;
-  height: 100%;  
-  border-radius: calc(var(--curve) * 1px);
-  overflow: hidden;
-  text-decoration: none;
-}
 
+
+/* Code for styling cards on main.html and search_rusults.html */
 .card_for_main{
   position: relative;
   display: block;
-  height: 100%;  
-  border-radius: calc(var(--curve) * 1px);
+  height: 60%;  
+  border-radius: calc(var(--curve) * 0.6px);
   overflow: hidden;
   text-decoration: none;
-  width: 30%;
+  width: 90%;
   background-color: white;
-  margin: 10px;
-
+  margin: 5%;
 }
+

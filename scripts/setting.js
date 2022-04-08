@@ -1,5 +1,6 @@
 var currentUser
 
+// POPULATE USER INFO FUNCTION
 function populateInfo() {
     firebase.auth().onAuthStateChanged(user => {
         // Check if user is signed in:
@@ -37,11 +38,15 @@ function populateInfo() {
     });
 }
 
+
+// EDIT USER INFO FUNCTION
 function editUserInfo() {
     //Enable the form fields
     document.getElementById('personalInfoFields').disabled = false;
 }
 
+
+// SAVE USER INFO FUNCTION
 function saveUserInfo() {
     userName = document.getElementById('nameInput').value;
     userCity = document.getElementById('cityInput').value;
@@ -49,11 +54,11 @@ function saveUserInfo() {
     userBirthday = document.getElementById('birthdayInput').value;
 
     currentUser.update({
-        name: userName,
-        city: userCity,
-        aboutme: userAboutMe,
-        birthday: userBirthday
-    })
+            name: userName,
+            city: userCity,
+            aboutme: userAboutMe,
+            birthday: userBirthday
+        })
         .then(() => {
             console.log("Document successfully updated!");
         })
@@ -61,6 +66,5 @@ function saveUserInfo() {
     document.getElementById('personalInfoFields').disabled = true;
 }
 
-//call the function to run it 
+//CALL POPULATEINFO FUNCTION
 populateInfo();
-
