@@ -28,9 +28,18 @@ Content of the project folder:
 
 ```
  Top level of project folder:
+├── .firebaserc
 ├── .gitignore               # Git ignore file
-├── contact.html               # landing HTML file, this is what users see when you come to url
+├── 404.html
+├── contact.html             
 ├── filter_by_foods.html
+├── firebase.json               
+├── firestore.indexes.json               
+├── firestore.rules
+├── footer.html               
+├── header_index.html               
+├── header_main.html
+├── index.html              # landing HTML file, this is what users see when you come to url 
 ├── login.html               
 ├── main.html               
 ├── map.html               
@@ -38,6 +47,7 @@ Content of the project folder:
 ├── review.html
 ├── search_results.html               
 ├── setting.html
+├── storage.rules
 ├── template.html
 ├── thanks.html
 └── README.md
