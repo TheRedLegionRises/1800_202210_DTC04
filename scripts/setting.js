@@ -54,11 +54,11 @@ function saveUserInfo() {
     userBirthday = document.getElementById('birthdayInput').value;
 
     currentUser.update({
-        name: userName,
-        city: userCity,
-        aboutme: userAboutMe,
-        birthday: userBirthday
-    })
+            name: userName,
+            city: userCity,
+            aboutme: userAboutMe,
+            birthday: userBirthday
+        })
         .then(() => {
             console.log("Document successfully updated!");
         })
@@ -68,4 +68,3 @@ function saveUserInfo() {
 
 //CALL POPULATEINFO FUNCTION
 populateInfo();
-

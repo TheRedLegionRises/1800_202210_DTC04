@@ -1,8 +1,9 @@
+// Write filter options into database
 function write_filters() {
     var filtersRef = db.collection("Filters");
 
     filtersRef.add({
-        code: "KOREN",
+        code: "KOREAN",
         filterName: "Korean",
         cuisineType: "Asian",
         searchName: "korean",
@@ -34,6 +35,7 @@ function write_filters() {
 
 }
 
+// Function for the search bar used to search specific filter buttons
 function searchFilters(){
     searchName = document.getElementById("filterSearch").value;
     serchName = searchName.toLowerCase();
@@ -52,7 +54,6 @@ function searchFilters(){
                     console.log(filterName);
                     displaySearchFilter(filterName, code);
                 }
-                //displaySearchFilter(searchResult);
             })
     } else {
         displayFilters();
@@ -61,6 +62,8 @@ function searchFilters(){
 
 }
 
+// If the search function is used, this will show the filter buttons that correspond to the searched filter
+// e.g. if Burger is searched, only the Burger filter button will be shown
 function displaySearchFilter(filterName, filterCode){
     $("#filtersShown").empty();
     let filterOptionsTemplate = document.getElementById("filterOptionsTemplate");
@@ -75,6 +78,7 @@ function displaySearchFilter(filterName, filterCode){
 
 }
 
+// Displays all the filter buttons
 function displayFilters() {
     $("#filtersShown").empty();
     let filterOptionsTemplate = document.getElementById("filterOptionsTemplate");
@@ -101,6 +105,7 @@ function displayFilters() {
 
 displayFilters();
 
+// Function to display the current filter that is selected
 function displaySelected(filterName) {
     $(".selected_filter_button").remove();
 
@@ -113,49 +118,16 @@ function displaySelected(filterName) {
 
 }
 
-// Not really sure what this is used for yet, prob gonna add some stuff later
+// Function that decides what to do if a button is pressed
 function button_pressed(filterCode, filterName) {
-    console.log("inside");
-
-    // Asks database hey, is there any in the "Filters" document that as a field "code" that matches the value filterCode
-    // Gets it, and then put all the results into queryFilter
-    // Filters = queryFilter.docs makes list(?) of docs
-    // Filters[0] returns first doc that matches the requirement, Filters[1] for second, etc etc.
-    // db.collection("Filters").where("code", "==", filterCode)
-    //     .get()
-    //     .then(queryFilter => {
-    //         //see how many results you have got from the query
-    //         size = queryFilter.size;
-    //         // get the documents of query
-    //         Filters = queryFilter.docs;
-
-    //         // test
-    //         if (size == 1) {
-    //             id = Filters[0].id;
-    //             var select = Filters[0].data().selected;
-
-    //             db.collection("Filters").doc(id).update({
-    //                 //Firebase documentation has this method for incrementation.
-    //                 // scores: firebase.firestore.FieldValue.increment(1)
-    //                 //timesUsed: firebase.firestore.FieldValue.increment(1)
-    //                 selected: select
-
-    //             })
-
-    //         } else {
-    //             console.log("Query has more than one data")
-    //         }
-    //     })
-    //     .catch((error) => {
-    //         console.log("Error getting documents: ", error);
-    //     });
+    console.log("button is pressed");
 
     // Functions to display the chosen filter button and display the restaurants that got filtered
     displaySelected(filterName);
-
     displayRestaurants(filterCode);
 }
 
+// Displays all the restaurant cards
 function displayAllRestaurants(){
     let RestaurantCard = document.getElementById("RestaurantCard");
     let RestaurantCardGroup = document.getElementById("restaurant_suggestions");
@@ -188,6 +160,7 @@ function displayAllRestaurants(){
 
     displayAllRestaurants();
 
+// Displays the restaurants that match the current selected filter
 function displayRestaurants(filterCode) {
     let RestaurantCard = document.getElementById("RestaurantCard");
     let RestaurantCardGroup = document.getElementById("restaurant_suggestions");
@@ -224,6 +197,8 @@ function displayRestaurants(filterCode) {
     
 }
 
+// What happens if the button in the selected filters box is pressed
+// The button removes itself and populates the restaurant suggestions box with all restaurant cards
 function selectedFilterButton() {
     $("#restaurant_suggestions").empty();
     $(this).remove();
