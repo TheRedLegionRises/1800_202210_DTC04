@@ -71,21 +71,21 @@ It has the following subfolders and files:
 └── /ramen-1.jpg
 
 ├── scripts                  # Folder for scripts
-    /authentication.js
-    /contact.js
-    /filter.js
-    /firebaseAPI_DT04.js
-    /main.js
-    /preference.js
-    /price.js
-    /review.js
-    /search_results.js
-    /setting.js
-    /skeleton.js
+├── /authentication.js
+├── /contact.js
+├── /filter.js
+├── /firebaseAPI_DT04.js
+├── /main.js
+├── /preference.js
+├── /price.js
+├── /review.js
+├── /search_results.js
+├── /setting.js
+├── /skeleton.js
 ├── styles                   # Folder for styles
-    /filterStyles.css        
-    /style.css
-    /styles_main.css
+├── /filterStyles.css        
+├── /style.css
+└── /styles_main.css
 
 Firebase hosting files:
 ├── .firebaserc...
