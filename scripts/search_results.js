@@ -27,9 +27,10 @@ function displayResults() {
     }
 }
 
+//call function to let results get shown on the page
 displayResults();
 
-//Populates the carsds dynamically onto the page using the search results input.
+//Populates the cards dynamically onto the page using the search results input.
 function populate_restaurants_search(Docs) {
     let RestaurantCardSearch = document.getElementById("RestaurantCardSearch");
     let Restaurant_Seach_CardGroup = document.getElementById("Restaurant_Seach_CardGroup");
@@ -39,7 +40,7 @@ function populate_restaurants_search(Docs) {
         Restaurant_Seach_CardGroup.removeChild(Restaurant_Seach_CardGroup.firstChild)
     }
 
-    Docs.forEach(doc => { //iterate through all documents in the Hikes collection
+    Docs.forEach(doc => { //iterate through all documents in the restuarant collection
         var RestaurantName = doc.data().name;
         var RestaurantID = doc.data().id;
         var RestaurantPrice = doc.data().price;

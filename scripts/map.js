@@ -90,4 +90,5 @@ function showRestaurantsOnMap() {
   });
 }
 
+// call show map function when loading the map page
 showRestaurantsOnMap();

@@ -149,6 +149,7 @@ function writeRestaurants() {
   });
 }
 
+// writes restaurant's ID into local storage
 function setRestuarantData(id) {
   localStorage.setItem("RestaurantID", id);
 }
