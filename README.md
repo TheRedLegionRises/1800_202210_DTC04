@@ -55,23 +55,20 @@ Content of the project folder:
 It has the following subfolders and files:
 ├── .git                     # Folder for git repo
 ├── images                   # Folder for images
-    /711.png
-    /app_logo(transparant).png
-    /background_landing_page.jpg
-    /image.jpg
-    /Lentil-Soup_D-Kopcok.jpg
-    /logo.png
-    /peaceful restaurant.jpg
-    /r_00.jpg
-    /r_01.jpg
-    /r_02.jpg
-    /r_03.jpg
-    /r_04.jpg
-    /r_05.jpg
-    /r_06.jpg
-    /r_07.jpg
-    /r_08.jpg
-    /ramen-1.jpg
+├── /app_logo(transparant).png
+├── /background_landing_page.jpg
+├── /image.jpg
+├── /Lentil-Soup_D-Kopcok.jpg
+├── /r_00.jpg
+├── /r_01.jpg
+├── /r_02.jpg
+├── /r_03.jpg
+├── /r_04.jpg
+├── /r_05.jpg
+├── /r_06.jpg
+├── /r_07.jpg
+├── /r_08.jpg
+└── /ramen-1.jpg
 
 ├── scripts                  # Folder for scripts
     /authentication.js
