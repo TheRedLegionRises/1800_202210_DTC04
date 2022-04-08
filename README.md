@@ -29,7 +29,17 @@ Content of the project folder:
 ```
  Top level of project folder:
 ├── .gitignore               # Git ignore file
-├── index.html               # landing HTML file, this is what users see when you come to url
+├── contact.html               # landing HTML file, this is what users see when you come to url
+├── filter_by_foods.html
+├── login.html               
+├── main.html               
+├── map.html               
+├── preferences.html               
+├── review.html
+├── search_results.html               
+├── setting.html
+├── template.html
+├── thanks.html
 └── README.md
 
 It has the following subfolders and files:
