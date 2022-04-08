@@ -1,5 +1,5 @@
 var currentUser;
-
+// get current user's uid, user name and user email from firebase and populate on the contact us page
 function populateInfo() {
   firebase.auth().onAuthStateChanged((user) => {
     // Check if user is signed in:
@@ -28,6 +28,7 @@ function populateInfo() {
   });
 }
 
+// invoke contactUs function when users click on submit button and redirect to main.html
 function ContactUs() {
   firebase.auth().onAuthStateChanged((user) => {
     if (user) {
