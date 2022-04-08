@@ -126,6 +126,7 @@ function showDescription(id) {
   }
 }
 
+//adds data to the firebase in the restuarant collection
 function writeRestaurants() {
   //define a variable for the collection you want to create in Firestore to populate data
   var restaurantRef = db.collection("restaurant");

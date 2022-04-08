@@ -1,9 +1,11 @@
+//gets the input from the search bar and redirects to the search_results.html page
 function gotoSearch(){
     testSearch = document.getElementById("mySearch").value;
     window.location.href="search_results.html?search="+testSearch;
 }
 
 
+//searchs for results that are given from the user input in the search bar.
 function displayResults() {
     let params = new URL(window.location.href);
     let testSearch = params.searchParams.get("search");               //parse "id"
@@ -27,7 +29,7 @@ function displayResults() {
 
 displayResults();
 
-
+//Populates the carsds dynamically onto the page using the search results input.
 function populate_restaurants_search(Docs) {
     let RestaurantCardSearch = document.getElementById("RestaurantCardSearch");
     let Restaurant_Seach_CardGroup = document.getElementById("Restaurant_Seach_CardGroup");
