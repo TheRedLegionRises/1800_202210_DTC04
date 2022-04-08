@@ -39,7 +39,7 @@ Content of the project folder:
 ├── footer.html
 ├── header_index.html
 ├── header_main.html
-├── index.html              # landing HTML file, this is what users see when you come to url 
+├── index.html              # landing HTML file, this is what users see when you come to url
 ├── login.html
 ├── main.html
 ├── map.html
@@ -83,7 +83,7 @@ It has the following subfolders and files:
 ├── /setting.js
 ├── /skeleton.js
 ├── styles                   # Folder for styles
-├── /filterStyles.css        
+├── /filterStyles.css
 ├── /style.css
 └── /styles_main.css
 
