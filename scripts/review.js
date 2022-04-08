@@ -1,10 +1,11 @@
+// get restaurant's ID from local storgage
 let RestaurantID = localStorage.getItem("RestaurantID");
-
+// use restaurant's ID to retrieve restaurant's name from firebase database
 db.collection("restaurant")
   .where("id", "==", RestaurantID)
   .get()
   .then((queryRestaurant) => {
-    //see how many results you have got from the query
+    //see how many results I have gotten from the query
     size = queryRestaurant.size;
     // get the documents of query
     restaurant = queryRestaurant.docs;
@@ -24,6 +25,7 @@ db.collection("restaurant")
     console.log("Error getting documents: ", error);
   });
 
+// invoke writeReview function when users click on submit button on review.html
 function writeReview() {
   firebase.auth().onAuthStateChanged((user) => {
     if (user) {
