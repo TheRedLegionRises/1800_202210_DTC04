@@ -43,16 +43,19 @@ function populate_restaurants() {
 
         newRestaurantCard.querySelector(".card-text").innerHTML =
           RestaurantDescription;
-        
-          // hides description first and sets ID of the description box to restaurantID
-        newRestaurantCard.querySelector(".card-text").style.display = "none";
-        newRestaurantCard.querySelector(".card-text").setAttribute("id", `${RestaurantID}`);
 
-        newRestaurantCard.querySelector("a").onclick = () =>
+        // hides description first and sets ID of the description box to restaurantID
+        newRestaurantCard.querySelector(".card-text").style.display = "none";
+        newRestaurantCard
+          .querySelector(".card-text")
+          .setAttribute("id", `${RestaurantID}`);
+
+        newRestaurantCard.querySelector("#review").onclick = () =>
           setRestuarantData(RestaurantID);
-        
+
         //show or hides the description
-        newRestaurantCard.querySelector(".show").onclick = () => showDescription(RestaurantID);
+        newRestaurantCard.querySelector(".show").onclick = () =>
+          showDescription(RestaurantID);
 
         newRestaurantCard.querySelector(
           "img"
@@ -93,12 +96,15 @@ function populate_preference_restaurants() {
 
           // hides description first and sets ID of the description box to restaurantID
           newRestaurantCard.querySelector(".card-text").style.display = "none";
-          newRestaurantCard.querySelector(".card-text").setAttribute("id", `${RestaurantID}`);
-          
-          // shows/hides the description
-          newRestaurantCard.querySelector(".show").onclick = () => showDescription(RestaurantID);
+          newRestaurantCard
+            .querySelector(".card-text")
+            .setAttribute("id", `${RestaurantID}`);
 
-          newRestaurantCard.querySelector("a").onclick = () =>
+          // shows/hides the description
+          newRestaurantCard.querySelector(".show").onclick = () =>
+            showDescription(RestaurantID);
+
+          newRestaurantCard.querySelector("#review").onclick = () =>
             setRestuarantData(RestaurantID);
           newRestaurantCard.querySelector(
             "img"
@@ -111,7 +117,7 @@ function populate_preference_restaurants() {
   console.log("populate_preference_restaurants() ran successfully");
 }
 
-function showDescription(id){
+function showDescription(id) {
   var x = document.getElementById(`${id}`);
   if (x.style.display === "none") {
     x.style.display = "block";
@@ -140,6 +146,10 @@ function writeRestaurants() {
     description:
       "Refined eatery offering Indian dishes & tandoori fare, plus patio seating & craft cocktails.",
   });
+}
+
+function setRestuarantData(id) {
+  localStorage.setItem("RestaurantID", id);
 }
 
 // writeRestaurants();
